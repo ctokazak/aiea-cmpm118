@@ -1,0 +1,55 @@
+?- prereq(cse101, P).
+   Direct prerequisites of CSE 101
+   swipl : cse13s, cse16, cse30
+   janus : cse13s, cse16, cse30
+   MATCH
+
+?- requires(cse140, P).
+   All prerequisites of CSE 140 (recursive)
+   swipl : cse101, cse12, cse13s, cse16, cse20, cse30
+   janus : cse101, cse12, cse13s, cse16, cse20, cse30
+   MATCH
+
+?- can_take(colby, C).
+   Courses Colby can take next
+   swipl : cse101
+   janus : cse101
+   MATCH
+
+?- can_take(maya, C).
+   Courses Maya can take next
+   swipl : cse13s, cse30
+   janus : cse13s, cse30
+   MATCH
+
+?- missing(jordan, cse101, P).
+   What Jordan is missing for CSE 101
+   swipl : cse13s, cse16
+   janus : cse13s, cse16
+   MATCH
+
+?- can_take(S, cse101).
+   Students who can take CSE 101
+   swipl : colby
+   janus : colby
+   MATCH
+
+?- course(C, _), depth(C, D).
+   Prerequisite depth of each course
+   swipl : cse101/3, cse12/1, cse130/4, cse13s/2, cse140/4, cse16/0, cse20/0, cse30/1
+   janus : cse101/3, cse12/1, cse130/4, cse13s/2, cse140/4, cse16/0, cse20/0, cse30/1
+   MATCH
+
+?- requires(cse130, cse20).
+   Is CSE 20 required for CSE 130?
+   swipl : true
+   janus : true
+   MATCH
+
+?- requires(cse101, cse140).
+   Is CSE 140 required for CSE 101?
+   swipl : false
+   janus : false
+   MATCH
+
+All queries match.

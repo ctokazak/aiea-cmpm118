@@ -1,0 +1,34 @@
+% The Task 4 course knowledge base, rewritten in Datalog.
+% Same facts; the rules use Datalog's `not` (stratified negation) instead of
+% Prolog's \+, and `requires` is computed bottom-up instead of by search.
+
+course(cse20). course(cse30). course(cse12). course(cse13s).
+course(cse16). course(cse101). course(cse130). course(cse140).
+
+prereq(cse30, cse20).   prereq(cse12, cse20).   prereq(cse13s, cse12).
+prereq(cse101, cse30).  prereq(cse101, cse13s). prereq(cse101, cse16).
+prereq(cse130, cse101). prereq(cse140, cse101).
+
+passed(colby, cse20). passed(colby, cse30). passed(colby, cse12).
+passed(colby, cse13s). passed(colby, cse16).
+passed(maya, cse20). passed(maya, cse12). passed(maya, cse16).
+passed(jordan, cse20). passed(jordan, cse30).
+
+student(S) :- passed(S, _).
+
+% transitive closure: the classic recursive Datalog rule
+requires(C, P) :- prereq(C, P).
+requires(C, P) :- prereq(C, M), requires(M, P).
+
+missing(S, C, P) :- student(S), prereq(C, P), not passed(S, P).
+blocked(S, C)    :- missing(S, C, _).
+can_take(S, C)   :- student(S), course(C), not passed(S, C), not blocked(S, C).
+
+?- prereq(cse101, P).
+?- requires(cse140, P).
+?- can_take(colby, C).
+?- can_take(maya, C).
+?- missing(jordan, cse101, P).
+?- can_take(S, cse101).
+?- requires(cse130, cse20).
+?- requires(cse101, cse140).

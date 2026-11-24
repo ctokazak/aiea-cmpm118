@@ -1,0 +1,161 @@
+{
+  "summary": {
+    "dataset": "prontoqa",
+    "model": "qwen2.5:3b",
+    "n": 10,
+    "note": "partial: first 10 of 30 planned; run stopped because the laptop slept (battery 1%)",
+    "logic_lm_accuracy": 0.3,
+    "direct_accuracy": 0.3,
+    "executable_rate_no_refinement": 0.7,
+    "executable_rate_with_refinement": 0.8,
+    "executable_accuracy": 0.375,
+    "unknown_answers": 5
+  },
+  "rows": [
+    {
+      "id": "ProntoQA_1",
+      "question": "Is the following statement true or false? Max is sour.",
+      "gold": "False",
+      "logic_lm": "Unknown",
+      "status": "backup (direct LLM)",
+      "direct": "Unknown",
+      "programs": [
+        "```prolog\n% predicates\n% shy(X, T) ::: Is X shy?\n% yompus(X, T) ::: Is X a jompus?\n% yumpus(X, T) ::: Is X a yumpus?\n% dumpus(X, T) ::: Is X a dumpus?\n% wooden(X, T) ::: Is X wooden?\n% wumpus(X, T) ::: Is X a wumpus?\n% impus(X, T) ::: Is X an impus?\n% opaque(X, T) ::: Is X opaque?\n% tumpus(X, T) ::: Is X a tumpus?\n% vumpus(X, T) ::: Is X a vumpus?\n% zompus(X, T) ::: Is X a zompus?\n% numpus(X, T) ::: Is X a numpus?\n% rompus(X, T) ::: Is X a rompus?\n% sour(X, T) ::: Is X sour?\n% earthy(X, T) ::: Is X earthy?\n% vumpus(X, T) ::: Is X a vumpus?\n% zompus(X, T) ::: Is X a zompus?\n% rompus(X, T) ::: Is X a rompus?\n% numpus(X, T) ::: Is X a numpus?\n% earthy(X, T) ::: Is X earthy?\n% sour(X, T) ::: Is X sour?\n% vumpus(X, T) ::: Is X a vumpus?\n% zompus(X, T) ::: Is X a zompus?\n% rompus(X, T) ::: Is X a rompus?\n% numpus(X, T) ::: Is X a numpus?\n% earthy(X, T) ::: Is X earthy?\n% sour(X, T) ::: Is X sour?\n% vumpus(X, T) ::: Is X a vumpus?\n% zompus(X, T) ::: Is X a zompus?\n% rompus(X, T) ::: Is X a rompus?\n% numpus(X, T) ::: Is X a numpus?\n% earthy(X, T) ::: Is X earthy?\n% sour(X, T) ::: Is X sour?\n% vumpus(X, T) ::: Is X a vumpus?\n% zompus(X, T) ::: Is X a zompus?\n% rompus(X, T) ::: Is X a rompus?\n% numpus(X, T) ::: Is X a numpus?\n% earthy(X, T) ::: Is X earthy?\n% sour(X, T) ::: Is X sour?\n% vumpus(X, T) ::: Is X a vumpus?\n% zompus(X, T) ::: Is X a zompus?\n% rompus(X, T) ::: Is X a rompus?\n% numpus(X, T) ::: Is X a numpus?\n% earthy(X, T) ::: Is X earthy?\n% sour(X, T) ::: Is X sour?\n% vumpus(X, T) ::: Is X a vumpus?\n% zompus(X, T) ::: Is X a zompus?\n% rompus(X, T) ::: Is X a rompus?\n% numpus(X, T) ::: Is X a numpus?\n% earthy(X, T) ::: Is X earthy?\n% sour(X, T) ::: Is X sour?\n% vumpus(X, T) ::: Is X a vumpus?\n% zompus(X, T) ::: Is X a zompus?\n% rompus(X, T) ::: Is X a rompus?\n% numpus(X, T) ::: Is X a numpus?\n% earthy(X, T) ::: Is X earthy?\n% sour(X, T) ::: Is X sour?\n% vumpus(X, T) ::: Is X a vumpus?\n% zompus(X, T) ::: Is X a zompus?\n% rompus(X, T) ::: Is X a rompus?\n% numpus(X, T) ::: Is X a numpus?\n% earthy(X, T) ::: Is X earthy?\n% sour(X, T) ::: Is X sour?\n% vumpus(X, T) ::: Is X a vumpus?\n% zompus(X, T) ::: Is X a zompus?\n% rompus(X, T) ::: Is X a rompus?\n% numpus(X, T) ::: Is X a numpus?\n% earthy(X, T) ::: Is X earthy?\n% sour(X, T) ::: Is X sour?\n% vumpus(X, T) ::: Is X a vumpus?\n% zompus(X, T) ::: Is X a zompus?",
+        "```prolog\n% predicates\nshy(X, T) :- Is X shy?\nyompus(X, T) :- Is X a jompus?\nyumpus(X, T) :- Is X a yumpus?\ndumpus(X, T) :- Is X a dumpus?\nwooden(X, T) :- Is X wooden?\nwumpus(X, T) :- Is X a wumpus?\nimpus(X, T) :- Is X an impus?\nopaque(X, T) :- Is X opaque?\ntumpus(X, T) :- Is X a tumpus?\nvumpus(X, T) :- Is X a vumpus?\nzompus(X, T) :- Is X a zompus?\nnumpus(X, T) :- Is X a numpus?\nrompus(X, T) :- Is X a rompus?\nsour(X, T) :- Is X sour?\nearthy(X, T) :- Is X earthy?\nvumpus(X, T) :- Is X a vumpus?\nzompus(X, T) :- Is X a zompus?\nrompus(X, T) :- Is X a rompus?\nnumpus(X, T) :- Is X a numpus?\nearthy(X, T) :- Is X earthy?\nsour(X, T) :- Is X sour?\nvumpus(X, T) :- Is X a vumpus?\nzompus(X, T) :- Is X a zompus?\nrompus(X, T) :- Is X a rompus?\nnumpus(X, T) :- Is X a numpus?\nearthy(X, T) :- Is X earthy?\nsour(X, T) :- Is X sour?\nvumpus(X, T) :- Is X a vumpus?\nzompus(X, T) :- Is X a zompus?\nrompus(X, T) :- Is X a rompus?\nnumpus(X, T) :- Is X a numpus?\nearthy(X, T) :- Is X earthy?\nsour(X, T) :- Is X sour?\nvumpus(X, T) :- Is X a vumpus?\nzompus(X, T) :- Is X a zompus?\nrompus(X, T) :- Is X a rompus?\nnumpus(X, T) :- Is X a numpus?\nearthy(X, T) :- Is X earthy?\nsour(X, T) :- Is X sour?\nvumpus(X, T) :- Is X a vumpus?\nzompus(X, T) :- Is X a zompus?\nrompus(X, T) :- Is X a rompus?\nnumpus(X, T) :- Is X a numpus?\nearthy(X, T) :- Is X earthy?\nsour(X, T) :- Is X sour?\nvumpus(X, T) :- Is X a vumpus?\nzompus(X, T) :- Is X a zompus?\nrompus(X, T) :- Is X a rompus?\nnumpus(X, T) :- Is X a numpus?\nearthy(X, T) :- Is X earthy?\nsour(X, T) :- Is X sour?\nvumpus(X, T) :- Is X a vumpus?\nzompus(X, T) :- Is X a zompus?\nrompus(X, T) :- Is X a rompus?\nnumpus(X, T) :- Is X a numpus?\nearthy(X, T) :- Is X earthy?\nsour(X, T) :- Is X sour?\nvumpus(X, T) :- Is X a vumpus?\nzompus(X, T) :- Is X a zompus?\nrompus(X, T) :- Is X a rompus?\nnumpus(X, T) :- Is X a numpus?\nearthy(X, T) :- Is X earthy?\nsour(X, T) :- Is X sour?\nvumpus(X, T) :- Is X a vumpus?\nzompus(X, T) :- Is X a zompus?\nrompus(X, T) :- Is X a rompus?\nnumpus(X, T) :- Is X a numpus?\nearthy(X, T) :- Is X earthy?\nsour(X, T) :- Is X sour?\nvumpus(X, T) :- Is X a vumpus?\nzompus(X, T) :- Is X a zompus?\nrompus(X, T) :- Is X a rompus?\nnumpus(X, T) :- Is X a numpus?\nearthy(X, T) :- Is X earthy?\nsour(X, T) :- Is X sour?\nvumpus(X, T) :-",
+        "```prolog\n% predicates\nshy(X, T) :- Is X shy?\nyompus(X, T) :- Is X a jompus?\nyumpus(X, T) :- Is X a yumpus?\ndumpus(X, T) :- Is X a dumpus?\nwooden(X, T) :- Is X wooden?\nwumpus(X, T) :- Is X a wumpus?\nimpus(X, T) :- Is X an impus?\nopaque(X, T) :- Is X opaque?\ntumpus(X, T) :- Is X a tumpus?\nvumpus(X, T) :- Is X a vumpus?\nzompus(X, T) :- Is X a zompus?\nnumpus(X, T) :- Is X a numpus?\nrompus(X, T) :- Is X a rompus?\nsour(X, T) :- Is X sour?\nearthy(X, T) :- Is X earthy?\nvumpus(X, T) :- Is X a vumpus?\nzompus(X, T) :- Is X a zompus?\nrompus(X, T) :- Is X a rompus?\nnumpus(X, T) :- Is X a numpus?\nearthy(X, T) :- Is X earthy?\nsour(X, T) :- Is X sour?\nvumpus(X, T) :- Is X a vumpus?\nzompus(X, T) :- Is X a zompus?\nrompus(X, T) :- Is X a rompus?\nnumpus(X, T) :- Is X a numpus?\nearthy(X, T) :- Is X earthy?\nsour(X, T) :- Is X sour?\nvumpus(X, T) :- Is X a vumpus?\nzompus(X, T) :- Is X a zompus?\nrompus(X, T) :- Is X a rompus?\nnumpus(X, T) :- Is X a numpus?\nearthy(X, T) :- Is X earthy?\nsour(X, T) :- Is X sour?\nvumpus(X, T) :- Is X a vumpus?\nzompus(X, T) :- Is X a zompus?\nrompus(X, T) :- Is X a rompus?\nnumpus(X, T) :- Is X a numpus?\nearthy(X, T) :- Is X earthy?\nsour(X, T) :- Is X sour?\nvumpus(X, T) :- Is X a vumpus?\nzompus(X, T) :- Is X a zompus?\nrompus(X, T) :- Is X a rompus?\nnumpus(X, T) :- Is X a numpus?\nearthy(X, T) :- Is X earthy?\nsour(X, T) :- Is X sour?\nvumpus(X, T) :- Is X a vumpus?\nzompus(X, T) :- Is X a zompus?\nrompus(X, T) :- Is X a rompus?\nnumpus(X, T) :- Is X a numpus?\nearthy(X, T) :- Is X earthy?\nsour(X, T) :- Is X sour?\nvumpus(X, T) :- Is X a vumpus?\nzompus(X, T) :- Is X a zompus?\nrompus(X, T) :- Is X a rompus?\nnumpus(X, T) :- Is X a numpus?\nearthy(X, T) :- Is X earthy?\nsour(X, T) :- Is X sour?\nvumpus(X, T) :- Is X a vumpus?\nzompus(X, T) :- Is X a zompus?\nrompus(X, T) :- Is X a rompus?\nnumpus(X, T) :- Is X a numpus?\nearthy(X, T) :- Is X earthy?\nsour(X, T) :- Is X sour?\nvumpus(X, T) :- Is X a vumpus?\nzompus(X, T) :- Is X a zompus?\nrompus(X, T) :- Is X a rompus?\nnumpus(X, T) :- Is X a numpus?\nearthy(X, T) :- Is X earthy?\nsour(X, T) :- Is X sour?\nvumpus(X, T) :- Is X a vumpus?\nzompus(X, T) :- Is X a zompus?\nrompus(X, T) :- Is X a rompus?\nnumpus(X, T) :- Is X a numpus?\nearthy(X, T) :- Is X earthy?\nsour(X, T) :- Is X sour?\nvumpus(X, T) :-"
+      ],
+      "errors": [
+        "The program has no query. Add one line of the form `?- predicate(args).`",
+        "The program has no query. Add one line of the form `?- predicate(args).`",
+        "The program has no query. Add one line of the form `?- predicate(args).`"
+      ],
+      "seconds": 3111.8
+    },
+    {
+      "id": "ProntoQA_2",
+      "question": "Is the following statement true or false? Stella is bright.",
+      "gold": "True",
+      "logic_lm": "True",
+      "status": "solved",
+      "direct": "Unknown",
+      "programs": [
+        "% predicates\n% tumpus(X, T) ::: Is X a tumpus?\n% rompus(X, T) ::: Is X a rompus?\n% numpus(X, T) ::: Is X a numpus?\n% luminous(X, T) ::: Is X luminous?\n% transparent(X, T) ::: Is X transparent?\n% bitter(X, T) ::: Is X bitter?\n% red(X, T) ::: Is X red?\n% impus(X, T) ::: Is X an impus?\n% dumpus(X, T) ::: Is X a dumpus?\n% happy(X, T) ::: Is X happy?\n% vumpus(X, T) ::: Is X a vumpus?\n% bright(X, T) ::: Is X bright?\n% large(X, T) ::: Is X large?\n% facts\ntumpus(stella, true).\n% rules\nrompus(X, true) :- tumpus(X, true).\nluminous(X, false) :- rompus(X, true).\ntransparent(X, true) :- rompus(X, true).\nbitter(X, false) :- numpus(X, true).\nnumpus(X, true) :- tumpus(X, true).\nyumpus(X, true) :- rompus(X, true).\ntransparent(X, true) :- yumpus(X, true).\nzumpus(X, true) :- yumpus(X, true).\nbitter(X, false) :- zumpus(X, true).\nimpus(X, true) :- zumpus(X, true).\nred(X, true) :- impus(X, true).\ndumpus(X, true) :- impus(X, true).\nhappy(X, true) :- dumpus(X, true).\nvumpus(X, true) :- dumpus(X, true).\nbright(X, true) :- vumpus(X, true).\nlarge(X, true) :- vumpus(X, true).\n% query\n?- bright(stella, true)."
+      ],
+      "errors": [],
+      "seconds": 449.3
+    },
+    {
+      "id": "ProntoQA_3",
+      "question": "Is the following statement true or false? Wren is not metallic.",
+      "gold": "True",
+      "logic_lm": "True",
+      "status": "solved",
+      "direct": "True",
+      "programs": [
+        "% predicates\n% vumpus(X, T) ::: Is X a vumpus?\n% tumpus(X, T) ::: Is X a tumpus?\n% brown(X, T) ::: Is X brown?\n% wumpus(X, T) ::: Is X a wumpus?\n% rompus(X, T) ::: Is X a rompus?\n% metallic(X, T) ::: Is X metallic?\n% happy(X, T) ::: Is X happy?\n% impus(X, T) ::: Is X an impus?\n% amenable(X, T) ::: Is X amenable?\n% dumpus(X, T) ::: Is X a dumpus?\n% numpus(X, T) ::: Is X a numpus?\n% bitter(X, T) ::: Is X bitter?\n% cold(X, T) ::: Is X cold?\n% yumpus(X, T) ::: Is X a yumpus?\n% parent(X, Y, T) ::: Is X the parent of Y?\n% likes(X, Y, T) ::: Does X like Y?\n% facts\nvumpus(wren, true).\n% rules\ntumpus(X, true) :- vumpus(X, true).\nbrown(X, true) :- tumpus(X, true).\nwumpus(X, true) :- tumpus(X, true).\nrompus(X, true) :- wumpus(X, true).\nmetallic(X, false) :- rompus(X, true).\nhappy(X, true) :- rompus(X, true).\nimpus(X, true) :- rompus(X, true).\namenable(X, true) :- impus(X, true).\ndumpus(X, true) :- impus(X, true).\nnumpus(X, true) :- dumpus(X, true).\nbitter(X, true) :- numpus(X, true).\ncold(X, true) :- yumpus(X, true).\nyumpus(X, true) :- jompus(X, true).\njompus(X, true) :- wumpus(X, true).\nparent(ann, bob, true).\nparent(bob, cara, true).\nparent(cara, dev, true).\nlikes(bob, chess, true).\n% query\n?- metallic(wren, false)."
+      ],
+      "errors": [],
+      "seconds": 633.1
+    },
+    {
+      "id": "ProntoQA_4",
+      "question": "Is the following statement true or false? Alex is not small.",
+      "gold": "False",
+      "logic_lm": "Unknown",
+      "status": "backup (direct LLM)",
+      "direct": "Unknown",
+      "programs": [
+        "% predicates\n% rompus(X, T) ::: Is X a rompus?\n% impus(X, T) ::: Is X an impus?\n% yumpus(X, T) ::: Is X a yumpus?\n% orange(X, T) ::: Is X orange?\n% zumpus(X, T) ::: Is X a zumpus?\n% numpus(X, T) ::: Is X a numpus?\n% wumpus(X, T) ::: Is X a wumpus?\n% kind(X, T) ::: Is X kind?\n% dumpus(X, T) ::: Is X a dumpus?\n% bright(X, T) ::: Is X bright?\n% metallic(X, T) ::: Is X metallic?\n% wumpus(X, T) ::: Is X a wumpus?\n% vumpus(X, T) ::: Is X a vumpus?\n% shy(X, T) ::: Is X shy?\n% tumpus(X, T) ::: Is X a tumpus?\n% facts\nrompus(alex, true).\n% rules\nimpus(X, true) :- rompus(X, true).\nyumpus(X, true) :- rompus(X, true).\norange(X, true) :- impus(X, true).\nzumpus(X, true) :- impus(X, true).\nzumpus(X, true) :- yumpus(X, true).\nnumpus(X, true) :- zumpus(X, true).\nwumpus(X, true) :- numpus(X, true).\nkind(X, false) :- wumpus(X, true).\ndumpus(X, true) :- wumpus(X, true).\nbright(X, false) :- dumpus(X, true).\nmetallic(X, true) :- numpus(X, true).\nwumpus(X, true) :- metallic(X, true).\nvumpus(X, true) :- metallic(X, true).\nvumpus(X, true) :- wumpus(X, true).\nvumpus(X, true) :- numpus(X, true).\ntumpus(X, true) :- vumpus(X, true).\n% query\n?- not(small(alex, true)).",
+        "rompus(alex, true).\nimpus(X, true) :- rompus(X, true).\nyumpus(X, true) :- rompus(X, true).\norange(X, true) :- impus(X, true).\nzumpus(X, true) :- impus(X, true).\nzumpus(X, true) :- yumpus(X, true).\nnumpus(X, true) :- zumpus(X, true).\nwumpus(X, true) :- numpus(X, true).\nkind(X, false) :- wumpus(X, true).\ndumpus(X, true) :- wumpus(X, true).\nbright(X, false) :- dumpus(X, true).\nmetallic(X, true) :- numpus(X, true).\nwumpus(X, true) :- metallic(X, true).\nvumpus(X, true) :- metallic(X, true).\nvumpus(X, true) :- wumpus(X, true).\nvumpus(X, true) :- numpus(X, true).\ntumpus(X, true) :- vumpus(X, true).\nnot(alex, true).\n?- not(small(alex, true)).",
+        "not(alex, false)."
+      ],
+      "errors": [
+        "The query uses not/1, but no fact or rule defines not/1. Defined predicates are: bright/2, dumpus/2, impus/2, kind/2, metallic/2, numpus/2, orange/2, rompus/2, tumpus/2, vumpus/2, wumpus/2, yumpus/2, zumpus/2. Use the same predicate name and number of arguments in the query as in the facts and rules.",
+        "The query uses not/1, but no fact or rule defines not/1. Defined predicates are: bright/2, dumpus/2, impus/2, kind/2, metallic/2, not/2, numpus/2, orange/2, rompus/2, tumpus/2, vumpus/2, wumpus/2, yumpus/2, zumpus/2. Use the same predicate name and number of arguments in the query as in the facts and rules.",
+        "The program has no query. Add one line of the form `?- predicate(args).`"
+      ],
+      "seconds": 1277.4
+    },
+    {
+      "id": "ProntoQA_5",
+      "question": "Is the following statement true or false? Alex is not dull.",
+      "gold": "True",
+      "logic_lm": "True",
+      "status": "solved",
+      "direct": "True",
+      "programs": [
+        "% predicates\n% rompus(X, T) ::: Is X a rompus?\n% zumpus(X, T) ::: Is X a zumpus?\n% numpus(X, T) ::: Is X a numpus?\n% tumpus(X, T) ::: Is X a tumpus?\n% yumpus(X, T) ::: Is X a yumpus?\n% jompus(X, T) ::: Is X a jompus?\n% wumpus(X, T) ::: Is X a wumpus?\n% earthy(X, T) ::: Is X earthy?\n% blue(X, T) ::: Is X blue?\n% dull(X, T) ::: Is X dull?\n% sour(X, T) ::: Is X sour?\n% dumpuse(X, T) ::: Is X a dumpuse?\n% vumpus(X, T) ::: Is X a vumpus?\n% facts\nrompus(alex, true).\n% rules\nzumpus(X, true) :- rompus(X, true).\nnumpus(X, true) :- zumpus(X, true).\ntumpus(X, true) :- numpus(X, true).\nnot_tempurate(X, true) :- tumpus(X, true).\ntumpus(X, true) :- numpus(X, true).\nnot_large(X, true) :- tumpus(X, true).\nyumpus(X, true) :- tumpus(X, true).\nearthly(X, true) :- yumpus(X, true).\njompus(X, true) :- yumpus(X, true).\nblue(X, true) :- jompus(X, true).\nwumpus(X, true) :- jompus(X, true).\nnot_dull(X, true) :- wumpus(X, true).\nsour(X, true) :- impuse(X, true).\ndumpuse(X, true) :- impuse(X, true).\nnot_vumpus(X, true) :- numpus(X, true).\nvumpus(X, true) :- numpus(X, true).\nnot_dull(X, true) :- wumpus(X, true).\n% query\n?- not_dull(alex, true)."
+      ],
+      "errors": [],
+      "seconds": 464.3
+    },
+    {
+      "id": "ProntoQA_6",
+      "question": "Is the following statement true or false? Wren is dull.",
+      "gold": "True",
+      "logic_lm": "Unknown",
+      "status": "solved after 1 refinement(s)",
+      "direct": "Unknown",
+      "programs": [
+        "% predicates\n% tumpus(X, T) ::: Is X a tumpus?\n% wumpus(X, T) ::: Is X a wumpus?\n% dumpus(X, T) ::: Is X a dumpus?\n% rompus(X, T) ::: Is X a rompus?\n% vumpus(X, T) ::: Is X a vumpus?\n% jompus(X, T) ::: Is X a jompus?\n% numpus(X, T) ::: Is X a numpus?\n% impus(X, T) ::: Is X an impus?\n% yumpus(X, T) ::: Is X a yumpus?\n% temperate(X, T) ::: Is X temperate?\n% spicy(X, T) ::: Is X spicy?\n% nervous(X, T) ::: Is X nervous?\n% liquid(X, T) ::: Is X liquid?\n% facts\ntumpus(wren, true).\n% rules\nwumpus(X, true) :- tumpus(X, true).\nnot_opaque(X, true) :- wumpus(X, true).\nnot_dull(X, true) :- dumpus(X, true).\nrompus(X, true) :- wumpus(X, true).\nbrown(X, true) :- rompus(X, true).\nvumpus(X, true) :- rompus(X, true).\ntemperate(X, true) :- vumpus(X, true).\njompus(X, true) :- vumpus(X, true).\nnumpus(X, true) :- jompus(X, true).\nliquid(X, true) :- numpus(X, true).\nimpus(X, true) :- numpus(X, true).\nspicy(X, true) :- impus(X, true).\nyumpus(X, true) :- numpus(X, true), not_nervous(X, true).\nnervous(X, true) :- yumpus(X, true).\n% query\n?- dull(wren, true).",
+        "% predicates\n% tumpus(X, T) ::: Is X a tumpus?\n% wumpus(X, T) ::: Is X a wumpus?\n% dumpus(X, T) ::: Is X a dumpus?\n% rompus(X, T) ::: Is X a rompus?\n% vumpus(X, T) ::: Is X a vumpus?\n% jompus(X, T) ::: Is X a jompus?\n% numpus(X, T) ::: Is X a numpus?\n% impus(X, T) ::: Is X an impus?\n% yumpus(X, T) ::: Is X a yumpus?\n% temperate(X, T) ::: Is X temperate?\n% spicy(X, T) ::: Is X spicy?\n% nervous(X, T) ::: Is X nervous?\n% liquid(X, T) ::: Is X liquid?\n% facts\ntumpus(wren, true).\n% rules\nwumpus(X, true) :- tumpus(X, true).\nnot_opaque(X, true) :- wumpus(X, true).\nnot_dull(X, true) :- dumpus(X, true).\nrompus(X, true) :- wumpus(X, true).\nbrown(X, true) :- rompus(X, true).\nvumpus(X, true) :- rompus(X, true).\ntemperate(X, true) :- vumpus(X, true).\njompus(X, true) :- vumpus(X, true).\nnumpus(X, true) :- jompus(X, true).\nliquid(X, true) :- numpus(X, true).\nimpus(X, true) :- numpus(X, true).\nspicy(X, true) :- impus(X, true).\nyumpus(X, true) :- numpus(X, true), not_nervous(X, true).\nnervous(X, true) :- yumpus(X, true).\n% query\n?- not_dull(wren, true)."
+      ],
+      "errors": [
+        "The query uses dull/2, but no fact or rule defines dull/2. Defined predicates are: brown/2, impus/2, jompus/2, liquid/2, nervous/2, not_dull/2, not_opaque/2, numpus/2, rompus/2, spicy/2, temperate/2, tumpus/2, vumpus/2, wumpus/2, yumpus/2. Use the same predicate name and number of arguments in the query as in the facts and rules."
+      ],
+      "seconds": 198.0
+    },
+    {
+      "id": "ProntoQA_7",
+      "question": "Is the following statement true or false? Stella is happy.",
+      "gold": "False",
+      "logic_lm": "Unknown",
+      "status": "solved",
+      "direct": "Unknown",
+      "programs": [
+        "% predicates\n% rompus(X, T) ::: Is X a rompus?\n% impus(X, T) ::: Is X an impus?\n% vumpus(X, T) ::: Is X a vumpus?\n% happy(X, T) ::: Is X happy?\n% spicy(X, T) ::: Is X spicy?\n% wumpus(X, T) ::: Is X a wumpus?\n% numpus(X, T) ::: Is X a numpus?\n% kind(X, T) ::: Is X kind?\n% tumpus(X, T) ::: Is X a tumpus?\n% bright(X, T) ::: Is X bright?\n% liquid(X, T) ::: Is X liquid?\n% dumpus(X, T) ::: Is X a dumpus?\n% happy(X, T) ::: Is X happy?\n% earthy(X, T) ::: Is X earthy?\n% jompus(X, T) ::: Is X a jompus?\n% zumpus(X, T) ::: Is X a zumpus?\n% yumpus(X, T) ::: Is X a yumpus?\n% tumpus(X, T) ::: Is X a tumpus?\n% query\n% facts\nrompus(stella, true).\nimpus(stella, true).\nvumpus(stella, true).\nspicy(X, true) :- impus(X, true).\nwumpus(X, true) :- impus(X, true).\nnumpus(X, true) :- wumpus(X, true).\nkind(X, false) :- numpus(X, true).\ntumpus(X, true) :- numpus(X, true).\nbright(X, false) :- tumpus(X, true).\nliquid(X, false) :- yumpus(X, true).\ndumpus(X, true) :- yumpus(X, true).\nhappy(X, false) :- dumpus(X, true).\nearthy(X, true) :- zumpus(X, true).\nzumpus(X, true) :- jompus(X, true).\njompus(X, true) :- zumpus(X, true).\n% query\n?- happy(stella, true)."
+      ],
+      "errors": [],
+      "seconds": 12.4
+    },
+    {
+      "id": "ProntoQA_8",
+      "question": "Is the following statement true or false? Alex is hot.",
+      "gold": "False",
+      "logic_lm": "Unknown",
+      "status": "solved",
+      "direct": "Unknown",
+      "programs": [
+        "% predicates\n% jompus(X, T) ::: Is X a jompus?\n% rompus(X, T) ::: Is X a rompus?\n% kind(X, T) ::: Is X kind?\n% zumpus(X, T) ::: Is X a zumpus?\n% feisty(X, T) ::: Is X feisty?\n% tumpus(X, T) ::: Is X a tumpus?\n% small(X, T) ::: Is X small?\n% opaque(X, T) ::: Is X opaque?\n% impus(X, T) ::: Is X an impus?\n% brown(X, T) ::: Is X brown?\n% dumpus(X, T) ::: Is X a dumpus?\n% vumpus(X, T) ::: Is X a vumpus?\n% numpus(X, T) ::: Is X a numpus?\n% facts\njompus(alex, true).\n% rules\nrompus(X, true) :- jompus(X, true).\nkind(X, false) :- rompus(X, true).\nzumpus(X, true) :- rompus(X, true).\nzumpus(X, true) :- jompus(X, true).\nfeisty(X, true) :- zumpus(X, true).\ntumpus(X, true) :- zumpus(X, true).\nsmall(X, true) :- tumpus(X, true).\nopaque(X, true) :- wumpus(X, true).\nimpus(X, true) :- zumpus(X, true).\nbrown(X, true) :- impus(X, true).\ndumpus(X, true) :- impus(X, true).\nvumpus(X, true) :- dumpus(X, true).\nnumpus(X, true) :- vumpus(X, true).\nhot(X, false) :- yumpus(X, true).\nwumpus(X, true) :- jompus(X, true).\nwumpus(X, true) :- zumpus(X, true).\nhot(X, true) :- yumpus(X, true).\nbrown(X, true) :- impus(X, true).\ndumpus(X, true) :- vumpus(X, true).\ndull(X, true) :- vumpus(X, true).\n% query\n?- hot(alex, true)."
+      ],
+      "errors": [],
+      "seconds": 14.4
+    },
+    {
+      "id": "ProntoQA_9",
+      "question": "Is the following statement true or false? Wren is wooden.",
+      "gold": "True",
+      "logic_lm": "False",
+      "status": "solved",
+      "direct": "True",
+      "programs": [
+        "% predicates\n% dumpus(X, T) ::: Is X a dumpus?\n% shy(X, T) ::: Is X shy?\n% tumpus(X, T) ::: Is X a tumpus?\n% wooden(X, T) ::: Is X wooden?\n% floral(X, T) ::: Is X floral?\n% impus(X, T) ::: Is X an impus?\n% bitter(X, T) ::: Is X bitter?\n% vumpus(X, T) ::: Is X a vumpus?\n% small(X, T) ::: Is X small?\n% orange(X, T) ::: Is X orange?\n% amenable(X, T) ::: Is X amenable?\n% jompus(X, T) ::: Is X a jompus?\n% zumpus(X, T) ::: Is X a zumpus?\n% numpus(X, T) ::: Is X a numpus?\n% yumpus(X, T) ::: Is X a yumpus?\n% facts\ndumpus(wren, true).\n% rules\nshy(X, false) :- dumpus(X, true).\ntumpus(X, true) :- dumpus(X, true).\nwooden(X, false) :- tumpus(X, true).\nfloral(X, false) :- tumpus(X, true).\nimpus(X, true) :- tumpus(X, true).\nbitter(X, true) :- impus(X, true).\nvumpus(X, true) :- impus(X, true).\nsmall(X, true) :- vumpus(X, true).\norange(X, true) :- vumpus(X, true).\namenable(X, true) :- jompus(X, true).\njompus(X, true) :- zumpus(X, true).\nzumpus(X, true) :- numpus(X, true).\nnumpus(X, true) :- yumpus(X, true).\nyumpus(X, true) :- jompus(X, true).\njompus(X, true) :- zompus(X, true).\nwumpus(X, true) :- tumpus(X, true).\nfloral(X, false) :- wumpus(X, true).\nimpus(X, true) :- wumpus(X, true).\nbitter(X, true) :- impus(X, true).\nvumpus(X, true) :- impus(X, true).\nsmall(X, true) :- vumpus(X, true).\norange(X, true) :- vumpus(X, true).\namenable(X, true) :- jompus(X, true).\njompus(X, true) :- zompus(X, true).\nzompus(X, true) :- numpus(X, true).\nnumpus(X, true) :- yumpus(X, true).\nyumpus(X, true) :- jompus(X, true).\njompus(X, true) :- zompus(X, true).\nwumpus(X, true) :- tumpus(X, true).\n% query\n?- wooden(wren, true)."
+      ],
+      "errors": [],
+      "seconds": 20.3
+    },
+    {
+      "id": "ProntoQA_10",
+      "question": "Is the following statement true or false? Fae is sweet.",
+      "gold": "False",
+      "logic_lm": "True",
+      "status": "solved",
+      "direct": "Unknown",
+      "programs": [
+        "% predicates\n% impus(X, T) ::: Is X an impus?\n% jompus(X, T) ::: Is X a jompus?\n% rompuses(X, T) ::: Is X a rompuses?\n% amenable(X, T) ::: Is X amenable?\n% wumpuses(X, T) ::: Is X a wumpuses?\n% zumpuses(X, T) ::: Is X a zumpuses?\n% temperate(X, T) ::: Is X temperate?\n% dumpuses(X, T) ::: Is X a dumpuses?\n% vumpuses(X, T) ::: Is X a vumpuses?\n% numpuses(X, T) ::: Is X a numpuses?\n% shy(X, T) ::: Is X shy?\n% sweet(X, T) ::: Is X sweet?\n% tumpuses(X, T) ::: Is X tumpuses?\n% facts\nimpus(fae, true).\n% rules\njompus(X, true) :- impus(X, true).\njompuses(X, true) :- jompus(X, true).\nrompuses(X, true) :- jompuses(X, true).\namenable(X, false) :- rompuses(X, true).\nwumpuses(X, true) :- rompuses(X, true).\nzumpuses(X, true) :- wumpuses(X, true).\ntemperate(X, true) :- zumpuses(X, true).\ndumpuses(X, true) :- zumpuses(X, true).\nvumpuses(X, true) :- dumpuses(X, true).\nshy(X, false) :- vumpuses(X, true).\nsweet(X, false) :- yumpuses(X, true).\nsweet(X, true) :- zumpuses(X, true).\nnumpuses(X, true) :- zumpuses(X, true).\ntumpuses(X, true) :- numpuses(X, true).\ntumpuses(X, false) :- numpuses(X, true).\n% query\n?- sweet(fae, true)."
+      ],
+      "errors": [],
+      "seconds": 201.2
+    }
+  ]
+}

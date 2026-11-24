@@ -1,0 +1,65 @@
+Task: translate a logic problem into a Prolog program.
+
+Rules for the program:
+1. Every property takes the thing it describes plus a truth value, `true` or `false`, as the LAST argument. "Alex is not shy" becomes `shy(alex, false).` "Each cat is a mammal" becomes `mammal(X, true) :- cat(X, true).` "Cats are not cold-blooded" becomes `cold_blooded(X, false) :- cat(X, true).`
+2. Relations between two things also end with a truth value: "Ann is the parent of Bob" becomes `parent(ann, bob, true).`
+3. Use lowercase names for constants and predicates (cse101, alex, wumpus). Use uppercase single letters for variables (X, Y, Z).
+4. Only use plain facts and rules (`head :- body1, body2.`). No negation, no `\+`, no lists, no arithmetic.
+5. End with exactly one query line of the form `?- predicate(args, true).` that asks whether the statement in the question is true. Use the same predicate names and argument counts as in the facts and rules.
+6. Start with a `% predicates` section: one comment line per predicate saying what each argument means, like the paper's `Shy($x, bool) ::: Is x shy?`. Keep that argument order everywhere, including in the query.
+7. Write one fact for each sentence that states a fact, and nothing else. Never add facts the problem does not state, and never write a fact or rule that just restates the question.
+8. Output only the program inside one ```prolog code block.
+
+------
+Problem:
+Every wumpus is a jompus. Jompuses are not bright. Each jompus is a zumpus. Zumpuses are large. Every yumpus is bright. Sam is a wumpus.
+Question:
+Is the following statement true or false? Sam is bright.
+###
+```prolog
+% predicates
+% wumpus(X, T) ::: Is X a wumpus?
+% jompus(X, T) ::: Is X a jompus?
+% zumpus(X, T) ::: Is X a zumpus?
+% yumpus(X, T) ::: Is X a yumpus?
+% bright(X, T) ::: Is X bright?
+% large(X, T) ::: Is X large?
+% facts
+wumpus(sam, true).
+% rules
+jompus(X, true) :- wumpus(X, true).
+bright(X, false) :- jompus(X, true).
+zumpus(X, true) :- jompus(X, true).
+large(X, true) :- zumpus(X, true).
+bright(X, true) :- yumpus(X, true).
+% query
+?- bright(sam, true).
+```
+------
+Problem:
+Ann is the parent of Bob. Bob is the parent of Cara. Cara is the parent of Dev. Someone's parent is their ancestor. If X is a parent of Y and Y is an ancestor of Z, then X is an ancestor of Z. Bob likes chess.
+Question:
+Is the following statement true or false? Ann is an ancestor of Dev.
+###
+```prolog
+% predicates
+% parent(X, Y, T) ::: Is X the parent of Y?
+% ancestor(X, Y, T) ::: Is X an ancestor of Y?
+% likes(X, Y, T) ::: Does X like Y?
+% facts
+parent(ann, bob, true).
+parent(bob, cara, true).
+parent(cara, dev, true).
+likes(bob, chess, true).
+% rules
+ancestor(X, Y, true) :- parent(X, Y, true).
+ancestor(X, Z, true) :- parent(X, Y, true), ancestor(Y, Z, true).
+% query
+?- ancestor(ann, dev, true).
+```
+------
+Problem:
+[[CONTEXT]]
+Question:
+[[QUESTION]]
+###

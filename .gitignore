@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+task2_nautilus/data/
+*.pth
+~$*

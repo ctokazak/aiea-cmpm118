@@ -1,0 +1,182 @@
+{
+  "summary": {
+    "dataset": "course_kb",
+    "model": "qwen2.5:3b",
+    "n": 14,
+    "logic_lm_accuracy": 0.5714285714285714,
+    "direct_accuracy": 0.2857142857142857,
+    "executable_rate_no_refinement": 1.0,
+    "executable_rate_with_refinement": 1.0,
+    "executable_accuracy": 0.5714285714285714
+  },
+  "rows": [
+    {
+      "id": "course_kb_1",
+      "question": "Is the following statement true or false? CSE 20 is a prerequisite of CSE 130.",
+      "gold": "True",
+      "logic_lm": "False",
+      "status": "solved",
+      "direct": "Unknown",
+      "programs": [
+        "% predicates\n% requires(X, Y, T) ::: Does X require Y?\n% prerequisite(X, Y, T) ::: Is X a prerequisite of Y?\n% passed(X, Y, T) ::: Did X pass Y?\n% facts\nrequires(cse30, cse20, true).\nrequires(cse12, cse20, true).\nrequires(cse13s, cse12, true).\nrequires(cse101, cse30, true).\nrequires(cse101, cse13s, true).\nrequires(cse101, cse16, true).\nrequires(cse130, cse101, true).\nrequires(cse140, cse101, true).\npassed(colby, cse20, true).\npassed(colby, cse30, true).\npassed(colby, cse12, true).\npassed(colby, cse13s, true).\npassed(colby, cse16, true).\npassed(maya, cse20, true).\npassed(maya, cse12, true).\npassed(maya, cse16, true).\npassed(jordan, cse20, true).\npassed(jordan, cse30, true).\n% rules\nprerequisite(cse20, cse30, true).\nprerequisite(cse20, cse12, true).\nprerequisite(cse20, cse13s, true).\nprerequisite(cse20, cse101, true).\nprerequisite(cse12, cse13s, true).\nprerequisite(cse13s, cse101, true).\nprerequisite(cse101, cse130, true).\nprerequisite(cse101, cse140, true).\npassed(X, Y, true) :- requires(X, Y, true), passed(X, Z, true), prerequisite(Z, Y, true).\n% query\n?- prerequisite(cse20, cse130, true)."
+      ],
+      "errors": []
+    },
+    {
+      "id": "course_kb_2",
+      "question": "Is the following statement true or false? CSE 140 is a prerequisite of CSE 101.",
+      "gold": "False",
+      "logic_lm": "False",
+      "status": "solved",
+      "direct": "Unknown",
+      "programs": [
+        "% predicates\n% requires(X, Y, T) ::: Does X require Y?\n% prerequisite(X, Y, T) ::: Is X a prerequisite of Y?\n% passed(X, Y, T) ::: Did X pass Y?\n% facts\nrequires(cse30, cse20, true).\nrequires(cse12, cse20, true).\nrequires(cse13s, cse12, true).\nrequires(cse101, cse30, true).\nrequires(cse101, cse13s, true).\nrequires(cse101, cse16, true).\nrequires(cse130, cse101, true).\nrequires(cse140, cse101, true).\npassed(colby, cse20, true).\npassed(colby, cse30, true).\npassed(colby, cse12, true).\npassed(colby, cse13s, true).\npassed(colby, cse16, true).\npassed(maya, cse20, true).\npassed(maya, cse12, true).\npassed(maya, cse16, true).\npassed(jordan, cse20, true).\npassed(jordan, cse30, true).\n% rules\nprerequisite(cse20, cse30, true).\nprerequisite(cse20, cse12, true).\nprerequisite(cse20, cse13s, true).\nprerequisite(cse20, cse101, true).\nprerequisite(cse12, cse13s, true).\nprerequisite(cse12, cse101, true).\nprerequisite(cse13s, cse16, true).\nprerequisite(cse13s, cse101, true).\nprerequisite(cse101, cse30, true).\nprerequisite(cse101, cse13s, true).\nprerequisite(cse101, cse16, true).\nprerequisite(cse101, cse130, true).\nprerequisite(cse101, cse140, true).\n% query\n?- prerequisite(cse140, cse101, true)."
+      ],
+      "errors": []
+    },
+    {
+      "id": "course_kb_3",
+      "question": "Is the following statement true or false? CSE 12 is a prerequisite of CSE 140.",
+      "gold": "True",
+      "logic_lm": "True",
+      "status": "solved",
+      "direct": "True",
+      "programs": [
+        "% predicates\n% requires(X, Y, T) ::: Does X require Y?\n% prerequisite(X, Y, T) ::: Is X a prerequisite of Y?\n% passed(X, Y, T) ::: Did X pass Y?\n% facts\nrequires(cse30, cse20, true).\nrequires(cse12, cse20, true).\nrequires(cse13s, cse12, true).\nrequires(cse101, cse30, true).\nrequires(cse101, cse13s, true).\nrequires(cse101, cse16, true).\nrequires(cse130, cse101, true).\nrequires(cse140, cse101, true).\npassed(colby, cse20, true).\npassed(colby, cse30, true).\npassed(colby, cse12, true).\npassed(colby, cse13s, true).\npassed(colby, cse16, true).\npassed(maya, cse20, true).\npassed(maya, cse12, true).\npassed(maya, cse16, true).\npassed(jordan, cse20, true).\npassed(jordan, cse30, true).\n% rules\nprerequisite(cse20, cse30, true).\nprerequisite(cse20, cse12, true).\nprerequisite(cse20, cse13s, true).\nprerequisite(cse20, cse101, true).\nprerequisite(cse12, cse130, true).\nprerequisite(cse12, cse140, true).\nprerequisite(cse13s, cse130, true).\nprerequisite(cse13s, cse140, true).\nprerequisite(cse101, cse130, true).\nprerequisite(cse101, cse140, true).\n% query\n?- prerequisite(cse12, cse140, true)."
+      ],
+      "errors": []
+    },
+    {
+      "id": "course_kb_4",
+      "question": "Is the following statement true or false? CSE 16 is a prerequisite of CSE 30.",
+      "gold": "False",
+      "logic_lm": "False",
+      "status": "solved",
+      "direct": "Unknown",
+      "programs": [
+        "% predicates\n% requires(X, Y, T) ::: Does X require Y?\n% prerequisite(X, Y, T) ::: Is X a prerequisite of Y?\n% passed(X, Y, T) ::: Did X pass Y?\n% facts\nrequires(cse30, cse20, true).\nrequires(cse12, cse20, true).\nrequires(cse13s, cse12, true).\nrequires(cse101, cse30, true).\nrequires(cse101, cse13s, true).\nrequires(cse101, cse16, true).\nrequires(cse130, cse101, true).\nrequires(cse140, cse101, true).\npassed(colby, cse20, true).\npassed(colby, cse30, true).\npassed(colby, cse12, true).\npassed(colby, cse13s, true).\npassed(colby, cse16, true).\npassed(maya, cse20, true).\npassed(maya, cse12, true).\npassed(maya, cse16, true).\npassed(jordan, cse20, true).\npassed(jordan, cse30, true).\n% rules\nprerequisite(cse20, cse30, true) :- requires(cse30, cse20, true).\nprerequisite(cse12, cse30, true) :- requires(cse30, cse12, true).\nprerequisite(cse13s, cse30, true) :- requires(cse30, cse13s, true).\nprerequisite(cse101, cse30, true) :- requires(cse30, cse101, true).\nprerequisite(cse101, cse13s, true) :- requires(cse13s, cse101, true).\nprerequisite(cse101, cse16, true) :- requires(cse16, cse101, true).\nprerequisite(cse130, cse101, true) :- requires(cse101, cse130, true).\nprerequisite(cse140, cse101, true) :- requires(cse101, cse140, true).\n% query\n?- prerequisite(cse16, cse30, true)."
+      ],
+      "errors": []
+    },
+    {
+      "id": "course_kb_5",
+      "question": "Is the following statement true or false? CSE 13S is a prerequisite of CSE 130.",
+      "gold": "True",
+      "logic_lm": "False",
+      "status": "solved",
+      "direct": "Unknown",
+      "programs": [
+        "% predicates\n% requires(X, Y, T) ::: Does X require Y?\n% prerequisite(X, Y, T) ::: Is X a prerequisite of Y?\n% passed(X, Y, T) ::: Did X pass Y?\n% facts\nrequires(cse30, cse20, true).\nrequires(cse12, cse20, true).\nrequires(cse13s, cse12, true).\nrequires(cse101, cse30, true).\nrequires(cse101, cse13s, true).\nrequires(cse101, cse16, true).\nrequires(cse130, cse101, true).\nrequires(cse140, cse101, true).\npassed(colby, cse20, true).\npassed(colby, cse30, true).\npassed(colby, cse12, true).\npassed(colby, cse13s, true).\npassed(colby, cse16, true).\npassed(maya, cse20, true).\npassed(maya, cse12, true).\npassed(maya, cse16, true).\npassed(jordan, cse20, true).\npassed(jordan, cse30, true).\n% rules\nprerequisite(cse101, cse30, true).\nprerequisite(cse101, cse13s, true).\nprerequisite(cse101, cse16, true).\nprerequisite(cse130, cse101, true).\n% query\n?- prerequisite(cse13s, cse130, true)."
+      ],
+      "errors": []
+    },
+    {
+      "id": "course_kb_6",
+      "question": "Is the following statement true or false? CSE 30 is a prerequisite of CSE 12.",
+      "gold": "False",
+      "logic_lm": "False",
+      "status": "solved",
+      "direct": "Unknown",
+      "programs": [
+        "% predicates\n% requires(X, Y, T) ::: Does X require Y?\n% prerequisite(X, Y, T) ::: Is X a prerequisite of Y?\n% passed(X, Y, T) ::: Did X pass Y?\n% facts\nrequires(cse30, cse20, true).\nrequires(cse12, cse20, true).\nrequires(cse13s, cse12, true).\nrequires(cse101, cse30, true).\nrequires(cse101, cse13s, true).\nrequires(cse101, cse16, true).\nrequires(cse130, cse101, true).\nrequires(cse140, cse101, true).\npassed(colby, cse20, true).\npassed(colby, cse30, true).\npassed(colby, cse12, true).\npassed(colby, cse13s, true).\npassed(colby, cse16, true).\npassed(maya, cse20, true).\npassed(maya, cse12, true).\npassed(maya, cse16, true).\npassed(jordan, cse20, true).\npassed(jordan, cse30, true).\n% rules\nprerequisite(cse20, cse30, true).\nprerequisite(cse20, cse12, true).\nprerequisite(cse12, cse13s, true).\nprerequisite(cse13s, cse101, true).\nprerequisite(cse101, cse30, true).\nprerequisite(cse101, cse13s, true).\nprerequisite(cse101, cse16, true).\nprerequisite(cse130, cse101, true).\nprerequisite(cse140, cse101, true).\npassed(X, Y, true) :- requires(X, Y, true), passed(X, Z, true), prerequisite(Z, Y, true).\n% query\n?- prerequisite(cse30, cse12, true)."
+      ],
+      "errors": []
+    },
+    {
+      "id": "course_kb_7",
+      "question": "Is the following statement true or false? Colby can take CSE 101.",
+      "gold": "True",
+      "logic_lm": "True",
+      "status": "solved",
+      "direct": "True",
+      "programs": [
+        "% predicates\n% requires(X, Y, T) ::: Does X require Y?\n% prerequisite(X, Y, T) ::: Is X a prerequisite of Y?\n% passed(X, Y, T) ::: Did X pass Y?\n% advanced(X, T) ::: Is X an advanced course?\n% facts\nrequires(cse30, cse20, true).\nrequires(cse12, cse20, true).\nrequires(cse13s, cse12, true).\nrequires(cse101, cse30, true).\nrequires(cse101, cse13s, true).\nrequires(cse101, cse16, true).\nrequires(cse130, cse101, true).\nrequires(cse140, cse101, true).\npassed(ann, cse20, true).\npassed(bob, cse30, true).\npassed(bob, cse12, true).\npassed(bob, cse13s, true).\npassed(bob, cse16, true).\npassed(maya, cse20, true).\npassed(maya, cse12, true).\npassed(maya, cse16, true).\npassed(jordan, cse20, true).\npassed(jordan, cse30, true).\n% rules\nprerequisite(cse30, cse20, true).\nprerequisite(cse12, cse20, true).\nprerequisite(cse13s, cse12, true).\nprerequisite(cse101, cse30, true).\nprerequisite(cse101, cse13s, true).\nprerequisite(cse101, cse16, true).\nprerequisite(cse130, cse101, true).\nprerequisite(cse140, cse101, true).\npassed(X, Y, true) :- requires(X, Y, true).\npassed(X, Y, true) :- prerequisite(X, Y, true), passed(X, Z, true).\nadvanced(cse101, true) :- requires(CSE, cse101, true), passed(CSE, CSE101, true).\npassed(ann, cse20, true) :- passed(ann, cse30, true), passed(ann, cse13s, true), passed(ann, cse16, true).\npassed(bob, cse30, true) :- passed(bob, cse101, true).\npassed(bob, cse12, true) :- passed(bob, cse101, true).\npassed(bob, cse13s, true) :- passed(bob, cse101, true).\npassed(bob, cse16, true) :- passed(bob, cse101, true).\npassed(maya, cse20, true) :- passed(maya, cse30, true), passed(maya, cse13s, true), passed(maya, cse16, true).\npassed(maya, cse12, true) :- passed(maya, cse101, true).\npassed(maya, cse16, true) :- passed(maya, cse101, true).\npassed(jordan, cse20, true) :- passed(jordan, cse30, true), passed(jordan, cse13s, true), passed(jordan, cse16, true).\npassed(jordan, cse12, true) :- passed(jordan, cse101, true).\npassed(jordan, cse16, true) :- passed(jordan, cse101, true).\n% query\n?- advanced(cse101, true)."
+      ],
+      "errors": []
+    },
+    {
+      "id": "course_kb_8",
+      "question": "Is the following statement true or false? Maya can take CSE 101.",
+      "gold": "False",
+      "logic_lm": "True",
+      "status": "solved",
+      "direct": "Unknown",
+      "programs": [
+        "% predicates\n% requires(X, Y, T) ::: Does X require Y?\n% prerequisite(X, Y, T) ::: Is X a prerequisite of Y?\n% passed(X, Y, T) ::: Did X pass Y?\n% advanced(X, T) ::: Is X an advanced course?\n% facts\nrequires(cse30, cse20, true).\nrequires(cse12, cse20, true).\nrequires(cse13s, cse12, true).\nrequires(cse101, cse30, true).\nrequires(cse101, cse13s, true).\nrequires(cse101, cse16, true).\nrequires(cse130, cse101, true).\nrequires(cse140, cse101, true).\npassed(colby, cse20, true).\npassed(colby, cse30, true).\npassed(colby, cse12, true).\npassed(colby, cse13s, true).\npassed(colby, cse16, true).\npassed(maya, cse20, true).\npassed(maya, cse12, true).\npassed(maya, cse16, true).\npassed(jordan, cse20, true).\npassed(jordan, cse30, true).\n% rules\nprerequisite(cse30, cse20, true).\nprerequisite(cse12, cse20, true).\nprerequisite(cse13s, cse12, true).\nprerequisite(cse101, cse30, true).\nprerequisite(cse101, cse13s, true).\nprerequisite(cse101, cse16, true).\nprerequisite(cse130, cse101, true).\nprerequisite(cse140, cse101, true).\npassed(X, Y, true) :- requires(X, Y, true), passed(X, Z, true), prerequisite(Z, Y, true).\npassed(X, cse101, true) :- passed(X, cse30, true), passed(X, cse13s, true), passed(X, cse16, true).\nadvanced(cse101, true).\n% query\n?- advanced(cse101, true)."
+      ],
+      "errors": []
+    },
+    {
+      "id": "course_kb_9",
+      "question": "Is the following statement true or false? Jordan can take CSE 101.",
+      "gold": "False",
+      "logic_lm": "True",
+      "status": "solved",
+      "direct": "Unknown",
+      "programs": [
+        "% predicates\n% requires(X, Y, T) ::: Does X require Y?\n% prerequisite(X, Y, T) ::: Is X a prerequisite of Y?\n% passed(X, Y, T) ::: Did X pass Y?\n% advanced(X, T) ::: Is X an advanced course?\n% facts\nrequires(cse30, cse20, true).\nrequires(cse12, cse20, true).\nrequires(cse13s, cse12, true).\nrequires(cse101, cse30, true).\nrequires(cse101, cse13s, true).\nrequires(cse101, cse16, true).\nrequires(cse130, cse101, true).\nrequires(cse140, cse101, true).\npassed(jordan, cse20, true).\npassed(jordan, cse30, true).\npassed(jordan, cse12, true).\npassed(jordan, cse13s, true).\npassed(jordan, cse16, true).\npassed(maya, cse20, true).\npassed(maya, cse12, true).\npassed(maya, cse16, true).\npassed(jordan, cse101, true).\npassed(colby, cse20, true).\npassed(colby, cse30, true).\npassed(colby, cse12, true).\npassed(colby, cse13s, true).\npassed(colby, cse16, true).\n% rules\nprerequisite(cse20, cse30, true).\nprerequisite(cse20, cse12, true).\nprerequisite(cse20, cse13s, true).\nprerequisite(cse20, cse101, true).\nprerequisite(cse12, cse13s, true).\nprerequisite(cse12, cse101, true).\nprerequisite(cse13s, cse16, true).\nprerequisite(cse13s, cse101, true).\nprerequisite(cse101, cse30, true).\nprerequisite(cse101, cse13s, true).\nprerequisite(cse101, cse16, true).\nprerequisite(cse101, cse130, true).\nprerequisite(cse101, cse140, true).\nadvanced(cse101, true).\n% query\n?- advanced(cse101, true)."
+      ],
+      "errors": []
+    },
+    {
+      "id": "course_kb_10",
+      "question": "Is the following statement true or false? CSE 140 is an advanced course.",
+      "gold": "True",
+      "logic_lm": "True",
+      "status": "solved",
+      "direct": "True",
+      "programs": [
+        "% predicates\n% requires(X, Y, T) ::: Does X require Y?\n% prerequisite(X, Y, T) ::: Is X a prerequisite of Y?\n% passed(X, Y, T) ::: Did X pass Y?\n% advanced(X, T) ::: Is X an advanced course?\n% facts\nrequires(cse30, cse20, true).\nrequires(cse12, cse20, true).\nrequires(cse13s, cse12, true).\nrequires(cse101, cse30, true).\nrequires(cse101, cse13s, true).\nrequires(cse101, cse16, true).\nrequires(cse130, cse101, true).\nrequires(cse140, cse101, true).\npassed(colby, cse20, true).\npassed(colby, cse30, true).\npassed(colby, cse12, true).\npassed(colby, cse13s, true).\npassed(colby, cse16, true).\npassed(maya, cse20, true).\npassed(maya, cse12, true).\npassed(maya, cse16, true).\npassed(jordan, cse20, true).\npassed(jordan, cse30, true).\n% rules\nprerequisite(cse20, cse30, true).\nprerequisite(cse20, cse12, true).\nprerequisite(cse20, cse13s, true).\nprerequisite(cse20, cse101, true).\nprerequisite(cse12, cse13s, true).\nprerequisite(cse12, cse101, true).\nprerequisite(cse13s, cse16, true).\nprerequisite(cse13s, cse101, true).\nprerequisite(cse101, cse30, true).\nprerequisite(cse101, cse13s, true).\nprerequisite(cse101, cse16, true).\nprerequisite(cse101, cse130, true).\nprerequisite(cse101, cse140, true).\nadvanced(cse101, true).\nadvanced(cse30, true).\nadvanced(cse12, true).\nadvanced(cse13s, true).\nadvanced(cse16, true).\nadvanced(cse130, true).\nadvanced(cse140, true).\n% query\n?- advanced(cse140, true)."
+      ],
+      "errors": []
+    },
+    {
+      "id": "course_kb_11",
+      "question": "Is the following statement true or false? CSE 30 is an advanced course.",
+      "gold": "False",
+      "logic_lm": "True",
+      "status": "solved",
+      "direct": "True",
+      "programs": [
+        "% predicates\n% requires(X, Y, T) ::: Does X require Y?\n% prerequisite(X, Y, T) ::: Is X a prerequisite of Y?\n% passed(X, Y, T) ::: Did X pass Y?\n% advanced(X, T) ::: Is X an advanced course?\n% facts\nrequires(cse30, cse20, true).\nrequires(cse12, cse20, true).\nrequires(cse13s, cse12, true).\nrequires(cse101, cse30, true).\nrequires(cse101, cse13s, true).\nrequires(cse101, cse16, true).\nrequires(cse130, cse101, true).\nrequires(cse140, cse101, true).\npassed(ann, cse20, true).\npassed(bob, cse30, true).\npassed(bob, cse12, true).\npassed(bob, cse13s, true).\npassed(bob, cse16, true).\npassed(maya, cse20, true).\npassed(maya, cse12, true).\npassed(maya, cse16, true).\npassed(jordan, cse20, true).\npassed(jordan, cse30, true).\n% rules\nprerequisite(cse20, cse30, true).\nprerequisite(cse20, cse12, true).\nprerequisite(cse20, cse13s, true).\nprerequisite(cse20, cse101, true).\nprerequisite(cse12, cse13s, true).\nprerequisite(cse12, cse101, true).\nprerequisite(cse13s, cse16, true).\nprerequisite(cse13s, cse101, true).\nprerequisite(cse101, cse30, true).\nprerequisite(cse101, cse13s, true).\nprerequisite(cse101, cse16, true).\nprerequisite(cse101, cse130, true).\nprerequisite(cse101, cse140, true).\nadvanced(cse101, true).\nadvanced(cse30, true).\nadvanced(cse13s, true).\nadvanced(cse16, true).\nadvanced(cse130, true).\nadvanced(cse140, true).\n% query\n?- advanced(cse30, true)."
+      ],
+      "errors": []
+    },
+    {
+      "id": "course_kb_12",
+      "question": "Is the following statement true or false? Maya passed CSE 16.",
+      "gold": "True",
+      "logic_lm": "True",
+      "status": "solved",
+      "direct": "True",
+      "programs": [
+        "% predicates\n% requires(X, Y, T) ::: Does X require Y?\n% prerequisite(X, Y, T) ::: Is X a prerequisite of Y?\n% passed(X, Y, T) ::: Did X pass Y?\n% advanced(X, T) ::: Is X an advanced course?\n% facts\nrequires(cse30, cse20, true).\nrequires(cse12, cse20, true).\nrequires(cse13s, cse12, true).\nrequires(cse101, cse30, true).\nrequires(cse101, cse13s, true).\nrequires(cse101, cse16, true).\nrequires(cse130, cse101, true).\nrequires(cse140, cse101, true).\npassed(colby, cse20, true).\npassed(colby, cse30, true).\npassed(colby, cse12, true).\npassed(colby, cse13s, true).\npassed(colby, cse16, true).\npassed(maya, cse20, true).\npassed(maya, cse12, true).\npassed(maya, cse16, true).\npassed(jordan, cse20, true).\npassed(jordan, cse30, true).\n% rules\nprerequisite(cse30, cse20, true).\nprerequisite(cse12, cse20, true).\nprerequisite(cse13s, cse12, true).\nprerequisite(cse101, cse30, true).\nprerequisite(cse101, cse13s, true).\nprerequisite(cse101, cse16, true).\nprerequisite(cse130, cse101, true).\nprerequisite(cse140, cse101, true).\npassed(X, Y, true) :- requires(X, Y, true), passed(X, Z, true), prerequisite(Z, Y, true).\nadvanced(cse101, true) :- passed(colby, cse30, true), passed(colby, cse13s, true), passed(colby, cse16, true).\n% query\n?- passed(maya, cse16, true)."
+      ],
+      "errors": []
+    },
+    {
+      "id": "course_kb_13",
+      "question": "Is the following statement true or false? Jordan passed CSE 12.",
+      "gold": "False",
+      "logic_lm": "False",
+      "status": "solved",
+      "direct": "Unknown",
+      "programs": [
+        "% predicates\n% requires(X, Y, T) ::: Does X require Y?\n% prerequisite(X, Y, T) ::: Is X a prerequisite of Y?\n% passed(X, Y, T) ::: Did X pass Y?\n% advanced(X, T) ::: Is X an advanced course?\n% facts\nrequires(cse30, cse20, true).\nrequires(cse12, cse20, true).\nrequires(cse13s, cse12, true).\nrequires(cse101, cse30, true).\nrequires(cse101, cse13s, true).\nrequires(cse101, cse16, true).\nrequires(cse130, cse101, true).\nrequires(cse140, cse101, true).\npassed(colby, cse20, true).\npassed(colby, cse30, true).\npassed(colby, cse12, true).\npassed(colby, cse13s, true).\npassed(colby, cse16, true).\npassed(maya, cse20, true).\npassed(maya, cse12, true).\npassed(maya, cse16, true).\npassed(jordan, cse20, true).\npassed(jordan, cse30, true).\n% rules\nprerequisite(cse30, cse20, true).\nprerequisite(cse12, cse20, true).\nprerequisite(cse13s, cse12, true).\nprerequisite(cse101, cse30, true).\nprerequisite(cse101, cse13s, true).\nprerequisite(cse101, cse16, true).\nprerequisite(cse130, cse101, true).\nprerequisite(cse140, cse101, true).\npassed(X, Y, true) :- requires(X, Y, true), passed(X, Z, true), prerequisite(Z, Y, true).\nadvanced(cse101, true) :- passed(X, cse30, true), passed(X, cse13s, true), passed(X, cse16, true).\n% query\n?- passed(jordan, cse12, true)."
+      ],
+      "errors": []
+    },
+    {
+      "id": "course_kb_14",
+      "question": "Is the following statement true or false? CSE 20 is a prerequisite of CSE 101.",
+      "gold": "True",
+      "logic_lm": "False",
+      "status": "solved",
+      "direct": "Unknown",
+      "programs": [
+        "% predicates\n% requires(X, Y, T) ::: Does X require Y?\n% prerequisite(X, Y, T) ::: Is X a prerequisite of Y?\n% passed(X, Y, T) ::: Did X pass Y?\n% facts\nrequires(cse30, cse20, true).\nrequires(cse12, cse20, true).\nrequires(cse13s, cse12, true).\nrequires(cse101, cse30, true).\nrequires(cse101, cse13s, true).\nrequires(cse101, cse16, true).\nrequires(cse130, cse101, true).\nrequires(cse140, cse101, true).\npassed(colby, cse20, true).\npassed(colby, cse30, true).\npassed(colby, cse12, true).\npassed(colby, cse13s, true).\npassed(colby, cse16, true).\npassed(maya, cse20, true).\npassed(maya, cse12, true).\npassed(maya, cse16, true).\npassed(jordan, cse20, true).\npassed(jordan, cse30, true).\n% rules\nprerequisite(cse20, cse101, true) :- requires(cse101, cse20, true).\nprerequisite(cse12, cse101, true) :- requires(cse101, cse12, true).\nprerequisite(cse13s, cse101, true) :- requires(cse101, cse13s, true).\nprerequisite(cse101, cse30, true) :- requires(cse30, cse101, true).\nprerequisite(cse101, cse13s, true) :- requires(cse13s, cse101, true).\nprerequisite(cse101, cse16, true) :- requires(cse16, cse101, true).\nprerequisite(cse130, cse101, true) :- requires(cse101, cse130, true).\nprerequisite(cse140, cse101, true) :- requires(cse101, cse140, true).\n% query\n?- prerequisite(cse20, cse101, true)."
+      ],
+      "errors": []
+    }
+  ]
+}

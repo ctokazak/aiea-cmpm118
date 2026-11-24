@@ -1,0 +1,32 @@
+# Task 2: a long-running pod with the PVC mounted at /data and one GPU.
+# Copy cifar10train.py in with `kubectl cp`, run it, then DELETE the deployment.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ctokazak-task2-deploy
+  namespace: aiea-auditors
+  labels: {app: ctokazak-task2}
+spec:
+  replicas: 1
+  selector:
+    matchLabels: {app: ctokazak-task2}
+  template:
+    metadata:
+      labels: {app: ctokazak-task2}
+    spec:
+      containers:
+        - name: trainer
+          image: pytorch/pytorch:2.4.1-cuda12.1-cudnn9-runtime
+          command: ["sh", "-c", "pip install -q matplotlib && sleep infinity"]
+          workingDir: /data
+          resources:
+            requests: {cpu: "2", memory: 8Gi, nvidia.com/gpu: 1}
+            limits:   {cpu: "2", memory: 8Gi, nvidia.com/gpu: 1}
+          volumeMounts:
+            - {name: data, mountPath: /data}
+            - {name: dshm, mountPath: /dev/shm}   # DataLoader workers need shared memory
+      volumes:
+        - name: data
+          persistentVolumeClaim: {claimName: ctokazak-task2}
+        - name: dshm
+          emptyDir: {medium: Memory, sizeLimit: 2Gi}

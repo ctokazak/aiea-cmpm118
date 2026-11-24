@@ -1,0 +1,100 @@
+[
+  {
+    "id": "course_kb_1",
+    "context": "CSE 30 requires CSE 20. CSE 12 requires CSE 20. CSE 13S requires CSE 12. CSE 101 requires CSE 30. CSE 101 requires CSE 13S. CSE 101 requires CSE 16. CSE 130 requires CSE 101. CSE 140 requires CSE 101. Colby passed CSE 20. Colby passed CSE 30. Colby passed CSE 12. Colby passed CSE 13S. Colby passed CSE 16. Maya passed CSE 20. Maya passed CSE 12. Maya passed CSE 16. Jordan passed CSE 20. Jordan passed CSE 30. If a course requires another course, the second course is a prerequisite of the first. If a course requires a second course and the second course has a prerequisite, that prerequisite is also a prerequisite of the first course. A student can take CSE 101 if they passed CSE 30, CSE 13S and CSE 16. Any course that requires CSE 101 is an advanced course.",
+    "question": "Is the following statement true or false? CSE 20 is a prerequisite of CSE 130.",
+    "answer": "True",
+    "gold_goal": "requires(cse130, cse20)"
+  },
+  {
+    "id": "course_kb_2",
+    "context": "CSE 30 requires CSE 20. CSE 12 requires CSE 20. CSE 13S requires CSE 12. CSE 101 requires CSE 30. CSE 101 requires CSE 13S. CSE 101 requires CSE 16. CSE 130 requires CSE 101. CSE 140 requires CSE 101. Colby passed CSE 20. Colby passed CSE 30. Colby passed CSE 12. Colby passed CSE 13S. Colby passed CSE 16. Maya passed CSE 20. Maya passed CSE 12. Maya passed CSE 16. Jordan passed CSE 20. Jordan passed CSE 30. If a course requires another course, the second course is a prerequisite of the first. If a course requires a second course and the second course has a prerequisite, that prerequisite is also a prerequisite of the first course. A student can take CSE 101 if they passed CSE 30, CSE 13S and CSE 16. Any course that requires CSE 101 is an advanced course.",
+    "question": "Is the following statement true or false? CSE 140 is a prerequisite of CSE 101.",
+    "answer": "False",
+    "gold_goal": "requires(cse101, cse140)"
+  },
+  {
+    "id": "course_kb_3",
+    "context": "CSE 30 requires CSE 20. CSE 12 requires CSE 20. CSE 13S requires CSE 12. CSE 101 requires CSE 30. CSE 101 requires CSE 13S. CSE 101 requires CSE 16. CSE 130 requires CSE 101. CSE 140 requires CSE 101. Colby passed CSE 20. Colby passed CSE 30. Colby passed CSE 12. Colby passed CSE 13S. Colby passed CSE 16. Maya passed CSE 20. Maya passed CSE 12. Maya passed CSE 16. Jordan passed CSE 20. Jordan passed CSE 30. If a course requires another course, the second course is a prerequisite of the first. If a course requires a second course and the second course has a prerequisite, that prerequisite is also a prerequisite of the first course. A student can take CSE 101 if they passed CSE 30, CSE 13S and CSE 16. Any course that requires CSE 101 is an advanced course.",
+    "question": "Is the following statement true or false? CSE 12 is a prerequisite of CSE 140.",
+    "answer": "True",
+    "gold_goal": "requires(cse140, cse12)"
+  },
+  {
+    "id": "course_kb_4",
+    "context": "CSE 30 requires CSE 20. CSE 12 requires CSE 20. CSE 13S requires CSE 12. CSE 101 requires CSE 30. CSE 101 requires CSE 13S. CSE 101 requires CSE 16. CSE 130 requires CSE 101. CSE 140 requires CSE 101. Colby passed CSE 20. Colby passed CSE 30. Colby passed CSE 12. Colby passed CSE 13S. Colby passed CSE 16. Maya passed CSE 20. Maya passed CSE 12. Maya passed CSE 16. Jordan passed CSE 20. Jordan passed CSE 30. If a course requires another course, the second course is a prerequisite of the first. If a course requires a second course and the second course has a prerequisite, that prerequisite is also a prerequisite of the first course. A student can take CSE 101 if they passed CSE 30, CSE 13S and CSE 16. Any course that requires CSE 101 is an advanced course.",
+    "question": "Is the following statement true or false? CSE 16 is a prerequisite of CSE 30.",
+    "answer": "False",
+    "gold_goal": "requires(cse30, cse16)"
+  },
+  {
+    "id": "course_kb_5",
+    "context": "CSE 30 requires CSE 20. CSE 12 requires CSE 20. CSE 13S requires CSE 12. CSE 101 requires CSE 30. CSE 101 requires CSE 13S. CSE 101 requires CSE 16. CSE 130 requires CSE 101. CSE 140 requires CSE 101. Colby passed CSE 20. Colby passed CSE 30. Colby passed CSE 12. Colby passed CSE 13S. Colby passed CSE 16. Maya passed CSE 20. Maya passed CSE 12. Maya passed CSE 16. Jordan passed CSE 20. Jordan passed CSE 30. If a course requires another course, the second course is a prerequisite of the first. If a course requires a second course and the second course has a prerequisite, that prerequisite is also a prerequisite of the first course. A student can take CSE 101 if they passed CSE 30, CSE 13S and CSE 16. Any course that requires CSE 101 is an advanced course.",
+    "question": "Is the following statement true or false? CSE 13S is a prerequisite of CSE 130.",
+    "answer": "True",
+    "gold_goal": "requires(cse130, cse13s)"
+  },
+  {
+    "id": "course_kb_6",
+    "context": "CSE 30 requires CSE 20. CSE 12 requires CSE 20. CSE 13S requires CSE 12. CSE 101 requires CSE 30. CSE 101 requires CSE 13S. CSE 101 requires CSE 16. CSE 130 requires CSE 101. CSE 140 requires CSE 101. Colby passed CSE 20. Colby passed CSE 30. Colby passed CSE 12. Colby passed CSE 13S. Colby passed CSE 16. Maya passed CSE 20. Maya passed CSE 12. Maya passed CSE 16. Jordan passed CSE 20. Jordan passed CSE 30. If a course requires another course, the second course is a prerequisite of the first. If a course requires a second course and the second course has a prerequisite, that prerequisite is also a prerequisite of the first course. A student can take CSE 101 if they passed CSE 30, CSE 13S and CSE 16. Any course that requires CSE 101 is an advanced course.",
+    "question": "Is the following statement true or false? CSE 30 is a prerequisite of CSE 12.",
+    "answer": "False",
+    "gold_goal": "requires(cse12, cse30)"
+  },
+  {
+    "id": "course_kb_7",
+    "context": "CSE 30 requires CSE 20. CSE 12 requires CSE 20. CSE 13S requires CSE 12. CSE 101 requires CSE 30. CSE 101 requires CSE 13S. CSE 101 requires CSE 16. CSE 130 requires CSE 101. CSE 140 requires CSE 101. Colby passed CSE 20. Colby passed CSE 30. Colby passed CSE 12. Colby passed CSE 13S. Colby passed CSE 16. Maya passed CSE 20. Maya passed CSE 12. Maya passed CSE 16. Jordan passed CSE 20. Jordan passed CSE 30. If a course requires another course, the second course is a prerequisite of the first. If a course requires a second course and the second course has a prerequisite, that prerequisite is also a prerequisite of the first course. A student can take CSE 101 if they passed CSE 30, CSE 13S and CSE 16. Any course that requires CSE 101 is an advanced course.",
+    "question": "Is the following statement true or false? Colby can take CSE 101.",
+    "answer": "True",
+    "gold_goal": "can_take(colby, cse101)"
+  },
+  {
+    "id": "course_kb_8",
+    "context": "CSE 30 requires CSE 20. CSE 12 requires CSE 20. CSE 13S requires CSE 12. CSE 101 requires CSE 30. CSE 101 requires CSE 13S. CSE 101 requires CSE 16. CSE 130 requires CSE 101. CSE 140 requires CSE 101. Colby passed CSE 20. Colby passed CSE 30. Colby passed CSE 12. Colby passed CSE 13S. Colby passed CSE 16. Maya passed CSE 20. Maya passed CSE 12. Maya passed CSE 16. Jordan passed CSE 20. Jordan passed CSE 30. If a course requires another course, the second course is a prerequisite of the first. If a course requires a second course and the second course has a prerequisite, that prerequisite is also a prerequisite of the first course. A student can take CSE 101 if they passed CSE 30, CSE 13S and CSE 16. Any course that requires CSE 101 is an advanced course.",
+    "question": "Is the following statement true or false? Maya can take CSE 101.",
+    "answer": "False",
+    "gold_goal": "can_take(maya, cse101)"
+  },
+  {
+    "id": "course_kb_9",
+    "context": "CSE 30 requires CSE 20. CSE 12 requires CSE 20. CSE 13S requires CSE 12. CSE 101 requires CSE 30. CSE 101 requires CSE 13S. CSE 101 requires CSE 16. CSE 130 requires CSE 101. CSE 140 requires CSE 101. Colby passed CSE 20. Colby passed CSE 30. Colby passed CSE 12. Colby passed CSE 13S. Colby passed CSE 16. Maya passed CSE 20. Maya passed CSE 12. Maya passed CSE 16. Jordan passed CSE 20. Jordan passed CSE 30. If a course requires another course, the second course is a prerequisite of the first. If a course requires a second course and the second course has a prerequisite, that prerequisite is also a prerequisite of the first course. A student can take CSE 101 if they passed CSE 30, CSE 13S and CSE 16. Any course that requires CSE 101 is an advanced course.",
+    "question": "Is the following statement true or false? Jordan can take CSE 101.",
+    "answer": "False",
+    "gold_goal": "can_take(jordan, cse101)"
+  },
+  {
+    "id": "course_kb_10",
+    "context": "CSE 30 requires CSE 20. CSE 12 requires CSE 20. CSE 13S requires CSE 12. CSE 101 requires CSE 30. CSE 101 requires CSE 13S. CSE 101 requires CSE 16. CSE 130 requires CSE 101. CSE 140 requires CSE 101. Colby passed CSE 20. Colby passed CSE 30. Colby passed CSE 12. Colby passed CSE 13S. Colby passed CSE 16. Maya passed CSE 20. Maya passed CSE 12. Maya passed CSE 16. Jordan passed CSE 20. Jordan passed CSE 30. If a course requires another course, the second course is a prerequisite of the first. If a course requires a second course and the second course has a prerequisite, that prerequisite is also a prerequisite of the first course. A student can take CSE 101 if they passed CSE 30, CSE 13S and CSE 16. Any course that requires CSE 101 is an advanced course.",
+    "question": "Is the following statement true or false? CSE 140 is an advanced course.",
+    "answer": "True",
+    "gold_goal": "advanced(cse140)"
+  },
+  {
+    "id": "course_kb_11",
+    "context": "CSE 30 requires CSE 20. CSE 12 requires CSE 20. CSE 13S requires CSE 12. CSE 101 requires CSE 30. CSE 101 requires CSE 13S. CSE 101 requires CSE 16. CSE 130 requires CSE 101. CSE 140 requires CSE 101. Colby passed CSE 20. Colby passed CSE 30. Colby passed CSE 12. Colby passed CSE 13S. Colby passed CSE 16. Maya passed CSE 20. Maya passed CSE 12. Maya passed CSE 16. Jordan passed CSE 20. Jordan passed CSE 30. If a course requires another course, the second course is a prerequisite of the first. If a course requires a second course and the second course has a prerequisite, that prerequisite is also a prerequisite of the first course. A student can take CSE 101 if they passed CSE 30, CSE 13S and CSE 16. Any course that requires CSE 101 is an advanced course.",
+    "question": "Is the following statement true or false? CSE 30 is an advanced course.",
+    "answer": "False",
+    "gold_goal": "advanced(cse30)"
+  },
+  {
+    "id": "course_kb_12",
+    "context": "CSE 30 requires CSE 20. CSE 12 requires CSE 20. CSE 13S requires CSE 12. CSE 101 requires CSE 30. CSE 101 requires CSE 13S. CSE 101 requires CSE 16. CSE 130 requires CSE 101. CSE 140 requires CSE 101. Colby passed CSE 20. Colby passed CSE 30. Colby passed CSE 12. Colby passed CSE 13S. Colby passed CSE 16. Maya passed CSE 20. Maya passed CSE 12. Maya passed CSE 16. Jordan passed CSE 20. Jordan passed CSE 30. If a course requires another course, the second course is a prerequisite of the first. If a course requires a second course and the second course has a prerequisite, that prerequisite is also a prerequisite of the first course. A student can take CSE 101 if they passed CSE 30, CSE 13S and CSE 16. Any course that requires CSE 101 is an advanced course.",
+    "question": "Is the following statement true or false? Maya passed CSE 16.",
+    "answer": "True",
+    "gold_goal": "passed(maya, cse16)"
+  },
+  {
+    "id": "course_kb_13",
+    "context": "CSE 30 requires CSE 20. CSE 12 requires CSE 20. CSE 13S requires CSE 12. CSE 101 requires CSE 30. CSE 101 requires CSE 13S. CSE 101 requires CSE 16. CSE 130 requires CSE 101. CSE 140 requires CSE 101. Colby passed CSE 20. Colby passed CSE 30. Colby passed CSE 12. Colby passed CSE 13S. Colby passed CSE 16. Maya passed CSE 20. Maya passed CSE 12. Maya passed CSE 16. Jordan passed CSE 20. Jordan passed CSE 30. If a course requires another course, the second course is a prerequisite of the first. If a course requires a second course and the second course has a prerequisite, that prerequisite is also a prerequisite of the first course. A student can take CSE 101 if they passed CSE 30, CSE 13S and CSE 16. Any course that requires CSE 101 is an advanced course.",
+    "question": "Is the following statement true or false? Jordan passed CSE 12.",
+    "answer": "False",
+    "gold_goal": "passed(jordan, cse12)"
+  },
+  {
+    "id": "course_kb_14",
+    "context": "CSE 30 requires CSE 20. CSE 12 requires CSE 20. CSE 13S requires CSE 12. CSE 101 requires CSE 30. CSE 101 requires CSE 13S. CSE 101 requires CSE 16. CSE 130 requires CSE 101. CSE 140 requires CSE 101. Colby passed CSE 20. Colby passed CSE 30. Colby passed CSE 12. Colby passed CSE 13S. Colby passed CSE 16. Maya passed CSE 20. Maya passed CSE 12. Maya passed CSE 16. Jordan passed CSE 20. Jordan passed CSE 30. If a course requires another course, the second course is a prerequisite of the first. If a course requires a second course and the second course has a prerequisite, that prerequisite is also a prerequisite of the first course. A student can take CSE 101 if they passed CSE 30, CSE 13S and CSE 16. Any course that requires CSE 101 is an advanced course.",
+    "question": "Is the following statement true or false? CSE 20 is a prerequisite of CSE 101.",
+    "answer": "True",
+    "gold_goal": "requires(cse101, cse20)"
+  }
+]

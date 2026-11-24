@@ -1,0 +1,13 @@
+The Prolog program below failed when it was run by the SWI-Prolog solver. Fix it.
+
+Keep the same encoding: every property or relation ends with a truth value argument, `true` or `false`. Use lowercase constants and predicates, uppercase variables, only plain facts and rules (no negation, lists or arithmetic), and exactly one query line `?- predicate(args, true).` that uses the same predicate name and number of arguments as the facts and rules.
+
+Program:
+```prolog
+[[PROGRAM]]
+```
+
+Solver error:
+[[ERROR]]
+
+Output only the corrected program inside one ```prolog code block.

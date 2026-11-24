@@ -1,0 +1,13 @@
+# Task 2: 5Gi persistent volume, named <cruzid>-task2 as the task asks.
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: ctokazak-task2
+  namespace: aiea-auditors
+spec:
+  storageClassName: rook-cephfs     # check with: kubectl get storageclass
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 5Gi

@@ -1,0 +1,17 @@
+% Reachability in a graph that has a cycle (a -> b -> c -> a).
+% Plain Prolog would loop forever on path(X, Y) :- path(X, Z), edge(Z, Y).
+% Datalog evaluates bottom-up and stops when no new facts appear.
+
+edge(a, b). edge(b, c). edge(c, a). edge(c, d). edge(e, f).
+node(a). node(b). node(c). node(d). node(e). node(f).
+
+path(X, Y) :- edge(X, Y).
+path(X, Y) :- path(X, Z), edge(Z, Y).          % left-recursive on purpose
+
+in_cycle(X) :- path(X, X).
+unreachable(X, Y) :- node(X), node(Y), not path(X, Y).
+
+?- path(a, Y).
+?- in_cycle(X).
+?- unreachable(d, Y).
+?- path(e, a).
