@@ -1,6 +1,5 @@
 ---
 title: "Research Diary"
-subtitle: "Colby Okazaki · CMPM 118 (AIEA Lab) · NeSy (LLMs and Logic)"
 ---
 
 Times are Pacific. Results and logs referred to here are in <https://github.com/ctokazak/aiea-cmpm118>.

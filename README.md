@@ -9,7 +9,7 @@ Colby Okazaki · Fall 2026 · topic: **Symbolic + Logic + Human-centered** (Neur
 | 4. Build your own KB | [`task4_kb/`](task4_kb/) | `courses.pl` (26 facts, 5 rules) and `queries.py`, which runs 9 queries in `swipl` and through janus and checks they match |
 | 5. Logic-LM | [`task5_logic_lm/`](task5_logic_lm/) | Reimplementation of Logic-LM with SWI-Prolog and a local LLM (Ollama), evaluated on the Task 4 KB and PrOntoQA, plus a run of the authors' own solver |
 | 6. Other logics: Datalog | [`task6_other_logics/`](task6_other_logics/) | `datalog.py` (a semi-naive Datalog engine with stratified negation), examples, tests, and a one-page tutorial |
-| Write-ups and slides | [`deliverables/`](deliverables/) | One-page write-ups and the Task 5 and Task 6 slide decks |
+| Write-ups and slides | [`deliverables/`](deliverables/) | Write-ups, research diary, Datalog tutorial and the Task 5 and Task 6 slide decks, as PDFs |
 
 ## Setup (macOS)
 
@@ -36,8 +36,8 @@ cd task5_logic_lm
 # Task 6
 cd task6_other_logics && ../.venv/bin/python test_datalog.py && ../.venv/bin/python datalog.py examples/graph.dl
 
-# Slides
-cd deliverables && ../.venv/bin/python make_slides.py
+# Slides and PDFs
+cd deliverables && ../.venv/bin/python make_slides.py && ./make_pdfs.sh
 ```
 
 The authors' Logic-LM code (<https://github.com/teacherpeterpan/Logic-LLM>) needs Python ≤ 3.11, because the Pyke solver imports the removed `imp` module. Its PrOntoQA results are saved in `task5_logic_lm/reference_run/`.

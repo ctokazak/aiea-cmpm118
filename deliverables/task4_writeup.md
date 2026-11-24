@@ -1,6 +1,5 @@
 ---
 title: "Task 4: Build Your Own KB"
-subtitle: "Colby Okazaki · CMPM 118 (AIEA Lab) · Symbolic + Logic + Human-centered"
 ---
 
 **Repository:** <https://github.com/ctokazak/aiea-cmpm118> (folder `task4_kb/`)

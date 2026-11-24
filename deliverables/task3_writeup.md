@@ -1,6 +1,5 @@
 ---
 title: "Task 3: Symbolic Logic and Reasoning Basics"
-subtitle: "Colby Okazaki · CMPM 118 (AIEA Lab) · Symbolic + Logic + Human-centered"
 ---
 
 > **TODO before submitting:** write the Reflection section below in your own words, then delete this box.

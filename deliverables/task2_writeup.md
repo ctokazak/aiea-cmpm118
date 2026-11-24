@@ -1,6 +1,5 @@
 ---
 title: "Task 2: Nautilus"
-subtitle: "Colby Okazaki · CMPM 118 (AIEA Lab)"
 ---
 
 **Repository:** <https://github.com/ctokazak/aiea-cmpm118> (folder `task2_nautilus/`)
