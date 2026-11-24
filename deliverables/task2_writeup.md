@@ -38,6 +38,12 @@ All three YAML files are in `task2_nautilus/`:
 
 A **deployment** keeps a pod running (and restarts it), which is good for interactive work but wastes a GPU if forgotten. A **job** runs a command to completion and then releases its resources, which is better for training runs. That's also why `sleep infinity` is fine in a deployment but never in a job.
 
+## Next steps
+
+- Run the Task 5 Logic-LM experiments as a Nautilus **Job** with a GPU. My laptop has 8 GB of RAM, which kept me on a 3B model; a GPU pod can run 7B+ models in Ollama and the full PrOntoQA dev set.
+- Keep datasets on a PVC from the start, so no run downloads them twice.
+- Delete the `ctokazak-task2` PVC (`kubectl delete -f task2_nautilus/pvc.yaml`) once this task is graded.
+
 ## Issues / feedback
 
 - The task says the namespace is joined "through Discord," but nothing tells you that the kubeconfig needs the separate `kubelogin` plugin. Without it, `kubectl` fails with an unclear error.

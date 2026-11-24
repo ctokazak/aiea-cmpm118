@@ -36,4 +36,9 @@ To check it, I used SWI-Prolog 11.0.0 with **tabling** (`:- table path/2.`), whi
 - **Negation needs care in both.** Datalog's `not` is still closed-world ("not derived"), the same caveat as Prolog's `\+` from Task 3. Stratification only guarantees a single consistent answer.
 - **Connection to LLMs.** In Task 5, my local model's Prolog programs sometimes had argument-order and invented-fact errors, but none of them hung, only because I added tabling. Datalog builds that guarantee into the language, and it is close to SQL, which LLMs already write well. Systems like Scallop (differentiable Datalog) use this for neuro-symbolic learning.
 
+## Next steps
+
+- Have the Task 5 formulator write Datalog instead of Prolog and compare how many programs run and how accurate they are.
+- Try one of the other logics listed in the task (e.g., probabilistic soft logic) on the same course KB, to see what it can say that Datalog can't.
+
 **Issue / feedback:** The Datalog primer link was the most useful reading. A short starter `.dl` example in the task folder would help auditors who haven't used Prolog before.

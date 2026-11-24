@@ -29,6 +29,11 @@ I worked through the symbolic logic crash-course notebook in Python 3 (it ran un
 
 The written response in the notebook puts the policy in plain language: access requires eligibility, and eligibility requires both registration and completed training. It describes Lee, who registered and finished training, but whose attendance sheet was never uploaded. Neither rule fires, and Lee is shown "no access", even though the system never decided Lee *didn't* complete training. It only failed to find a record (the closed-world assumption). So the result should read "access not granted: missing completed_training_lee", not "Lee is ineligible." To contest it, Lee is shown `derived = False` and the `missing` set, submits evidence such as a training certificate, and a person reviews it and adds the fact. The rules are then re-run, and the trace shows which rule changed the outcome.
 
+## Next steps
+
+- Carry the "not derived ≠ false" idea into Prolog: Task 4's `can_take` rule uses `\+`, which makes the same closed-world assumption.
+- Reuse `explain_access`'s idea (report the `missing` facts, not just yes/no) when explaining Prolog answers in Tasks 4 and 5.
+
 ## Reflection
 
 [Write 3–5 sentences in your own words: what you learned, what surprised you, and how it connects to Tasks 4–6.]

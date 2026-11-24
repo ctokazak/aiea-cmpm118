@@ -45,3 +45,8 @@ I checked these answers by hand against the prerequisite chain (20 → 12 → 13
 ## What I learned
 
 The recursive `requires` rule only works with the base case listed first and the recursive call last. If it is left-recursive, Prolog's depth-first search would loop. `can_take` taught me that `\+` is negation *as failure*: Maya "can't take CSE 101" only because the KB has no record of her passing CSE 30, not because it says she failed it. The same KB is reused in Task 5 to test Logic-LM and in Task 6, where I rewrote it in Datalog and got the same answers.
+
+## Next steps
+
+- Add an `explain(S, C, Why)` rule that returns the full chain of missing prerequisites, like Task 3's `explain_access`, so a "no" comes with a reason.
+- Extend it with course offerings per quarter and unit limits, so `can_take` needs more than one kind of constraint.
