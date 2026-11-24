@@ -3,7 +3,7 @@ title: "Task 2: Nautilus"
 subtitle: "Colby Okazaki · CMPM 118 (AIEA Lab)"
 ---
 
-> **TODO before submitting:** finish the JupyterHub step (item 4), add the screenshot, then delete this box.
+> **TODO before submitting:** finish the JupyterHub step (item 4), then delete this box.
 
 **Repository:** <https://github.com/ctokazak/aiea-cmpm118> (folder `task2_nautilus/`)
 
@@ -30,7 +30,9 @@ All three YAML files are in `task2_nautilus/`:
 
 **Deployment:** copied `cifar10train.py` into the PVC with `kubectl cp`, ran it with `kubectl exec`, then **deleted the deployment** so it wouldn't hold a GPU while idle. The pod got an **NVIDIA TITAN Xp** (12 GB). The script printed `Device: cuda:0`. Two epochs reached **55%** test accuracy, with the loss falling from 2.199 to 1.301. The run took 2006 s in total, but almost all of that was the first download of CIFAR-10 (170 MB at about 95 KB/s, 30 minutes). Training itself took about 3 minutes. The dataset was saved to the PVC, so the job didn't download it again. Log: `task2_nautilus/logs/deployment_train.log`.
 
-**Job:** applied `job.yaml` on the same PVC (after the deployment's pod was gone, since a PVC can be single-attach) and read the output with `kubectl logs job/ctokazak-task2-job`. Then I deleted the job. The log shows `Device: cuda:0`, so the training ran on the GPU. The job finished in 4m23s (219.6 s for the script), reusing the dataset already on the PVC. The loss fell from 2.225 to 1.267, and test accuracy was **52%**. It differs slightly from the deployment run because the weights start from a different random initialization and the data is shuffled differently. Log: `task2_nautilus/logs/job_train.log`. [Screenshot]
+**Job:** applied `job.yaml` on the same PVC (after the deployment's pod was gone, since a PVC can be single-attach) and read the output with `kubectl logs job/ctokazak-task2-job`. Then I deleted the job. The log shows `Device: cuda:0`, so the training ran on the GPU. The job finished in 4m23s (219.6 s for the script), reusing the dataset already on the PVC. The loss fell from 2.225 to 1.267, and test accuracy was **52%**. It differs slightly from the deployment run because the weights start from a different random initialization and the data is shuffled differently. Log: `task2_nautilus/logs/job_train.log`.
+
+![Job log from `kubectl logs`, showing `Device: cuda:0`](task2_job_screenshot.png){width=5.5in}
 
 ## Deployment vs. Job
 
