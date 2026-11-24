@@ -3,8 +3,6 @@ title: "Task 2: Nautilus"
 subtitle: "Colby Okazaki · CMPM 118 (AIEA Lab)"
 ---
 
-> **TODO before submitting:** finish the JupyterHub step (item 4), then delete this box.
-
 **Repository:** <https://github.com/ctokazak/aiea-cmpm118> (folder `task2_nautilus/`)
 
 ## What Nautilus is
@@ -16,7 +14,7 @@ Nautilus, run by the National Research Platform (NRP), is a shared Kubernetes cl
 1. Logged in at nrp.ai with my UCSC account through CILogon.
 2. Downloaded the cluster config with `curl -o ~/.kube/config https://nrp.ai/config` and installed `kubectl` and `kubelogin` with Homebrew. The config file won't work without kubelogin, which handles the CILogon sign-in.
 3. `kubectl get pods -n aiea-auditors` first returned **Forbidden**, because my login worked but I hadn't been added to the namespace yet. I asked in the Nautilus Discord channel and was added on November 24, 2026.
-4. JupyterHub: ran the `cifar10_tutorial.ipynb` notebook at jupyterhub-west.nrp-nautilus.io after `pip install`-ing torchvision and matplotlib. [TODO: one sentence on what happened / how long the wait was]
+4. JupyterHub: started a server at jupyterhub-west.nrp-nautilus.io (PyTorch image, 1 GPU, 2 cores), uploaded `cifar10_tutorial.ipynb`, `pip install`-ed torchvision and matplotlib, and ran the whole notebook. The server got a **Tesla V100-SXM2-32GB**, and `torch.cuda.is_available()` returned `True`. The run took 21m44s, of which about 19 minutes was downloading CIFAR-10 (around 150 KB/s). Two epochs reached **53%** test accuracy (loss 2.201 → 1.286). Cats (27%) and dogs (23%) were the worst classes, horses (73%) the best. The tutorial only checks for the GPU in its last cell and never moves the model onto it, so this training ran on the CPU. In the Deployment and Job runs below, my `cifar10train.py` does move it to `cuda:0`. Log: `task2_nautilus/logs/jupyterhub_run.log`.
 
 ## Deployment, PVC and Job
 
