@@ -1,35 +1,39 @@
-**Repository:** <https://github.com/ctokazak/aiea-cmpm118> (folder `task2_nautilus/`)
+<style>@page { margin: 0.75in; } h2 { margin-top: 12pt; }</style>
 
-## Getting access
+**Task 2: Nautilus** · Colby Okazaki · Repository: <https://github.com/ctokazak/aiea-cmpm118> (folder `task2_nautilus/`)
 
-1. Logged in at nrp.ai with my UCSC account through CILogon.
-2. Downloaded the cluster config with `curl -o ~/.kube/config https://nrp.ai/config` and installed `kubectl` and `kubelogin` with Homebrew. The config file won't work without kubelogin, which handles the CILogon sign-in.
-3. `kubectl get pods -n aiea-auditors` first returned **Forbidden**, because my login worked but I hadn't been added to the namespace yet. I asked in the Nautilus Discord channel and was added on November 24, 2026.
-4. JupyterHub: started a server at jupyterhub-west.nrp-nautilus.io (PyTorch image, 1 GPU, 2 cores), uploaded `cifar10_tutorial.ipynb`, `pip install`-ed torchvision and matplotlib, and ran the whole notebook. The server got a **Tesla V100-SXM2-32GB**, and `torch.cuda.is_available()` returned `True`. The run took 21m44s, of which about 19 minutes was downloading CIFAR-10 (around 150 KB/s). Two epochs reached **53%** test accuracy (loss 2.201 → 1.286). Cats (27%) and dogs (23%) were the worst classes, horses (73%) the best. The tutorial only checks for the GPU in its last cell and never moves the model onto it, so this training ran on the CPU. In the Deployment and Job runs below, my `cifar10train.py` does move it to `cuda:0`. Log: `task2_nautilus/logs/jupyterhub_run.log`.
+## Summary
 
-## Deployment, PVC and Job
+**What Nautilus is.** Nautilus is the National Research Platform's shared Kubernetes cluster: GPU machines at many universities pooled into one system. Instead of logging in to a machine, you write a YAML file saying what you need (image, CPUs, memory, GPUs, storage), and Kubernetes runs it wherever there's room. Each group works in a **namespace**; ours is `aiea-auditors`. A **PVC** is storage that outlives any one pod. A **Deployment** keeps a pod running until you delete it, which is good for interactive work. A **Job** runs a command to completion and then frees its resources, which is better for training.
 
-All three YAML files are in `task2_nautilus/`:
+**What I did.**
 
-| Resource | Name | Notes |
-|---|---|---|
-| PVC | `ctokazak-task2` | 5Gi, `rook-cephfs`, mounted at `/data` |
-| Deployment | `ctokazak-task2-deploy` | `pytorch/pytorch:2.4.1-cuda12.1-cudnn9-runtime`, 1 GPU, 2 CPU, 8Gi; `sleep infinity` so I can `kubectl exec` in |
-| Job | `ctokazak-task2-job` | same image and PVC; `command` runs `python cifar10train.py`; `restartPolicy: Never` |
+- Logged in at nrp.ai through CILogon, set up `kubectl` with `kubelogin`, and was added to `aiea-auditors` on Nov 24.
+- **JupyterHub:** ran `cifar10_tutorial.ipynb` on a server with a Tesla V100: 53% test accuracy in 21m44s.
+- **PVC:** created `ctokazak-task2` (5Gi, `rook-cephfs`).
+- **Deployment:** ran `ctokazak-task2-deploy` with the PVC at `/data` and 1 GPU. I copied `cifar10train.py` in with `kubectl cp` and trained with `kubectl exec`. It got an NVIDIA TITAN Xp, printed `Device: cuda:0`, and reached 55%. Then I deleted the Deployment.
+- **Job:** ran `ctokazak-task2-job` on the same PVC, with `command` changed to run the training script. It finished in 4m23s at 52% (`Device: cuda:0`, screenshot on page 2). Then I deleted the Job.
 
-**Deployment:** copied `cifar10train.py` into the PVC with `kubectl cp`, ran it with `kubectl exec`, then **deleted the deployment** so it wouldn't hold a GPU while idle. The pod got an **NVIDIA TITAN Xp** (12 GB). The script printed `Device: cuda:0`. Two epochs reached **55%** test accuracy, with the loss falling from 2.199 to 1.301. The run took 2006 s in total, but almost all of that was the first download of CIFAR-10 (170 MB at about 95 KB/s, 30 minutes). Training itself took about 3 minutes. The dataset was saved to the PVC, so the job didn't download it again. Log: `task2_nautilus/logs/deployment_train.log`.
+## What went well
 
-**Job:** applied `job.yaml` on the same PVC (after the deployment's pod was gone, since a PVC can be single-attach) and read the output with `kubectl logs job/ctokazak-task2-job`. Then I deleted the job. The log shows `Device: cuda:0`, so the training ran on the GPU. The job finished in 4m23s (219.6 s for the script), reusing the dataset already on the PVC. The loss fell from 2.225 to 1.267, and test accuracy was **52%**. It differs slightly from the deployment run because the weights start from a different random initialization and the data is shuffled differently. Log: `task2_nautilus/logs/job_train.log`.
+- Once I had access, the YAML files worked on the first try; the pod got a GPU in under a minute.
+- Keeping the dataset on the PVC paid off: the Job reused it and finished in about 4 minutes instead of 30+.
 
-![Job log from `kubectl logs`, showing `Device: cuda:0`](task2_job_screenshot.png){width=5.5in}
+## Issues I ran into
 
-## Next steps
+- `kubectl get pods -n aiea-auditors` returned **Forbidden** until I was added to the namespace.
+- The kubeconfig from nrp.ai needs the separate `kubelogin` plugin; without it, the error doesn't say what's missing.
+- Downloading CIFAR-10 inside the cluster was slow (~95–150 KB/s): 30 minutes in the Deployment, 19 on JupyterHub.
+- The tutorial notebook never moves the model to the GPU (`net.to(device)` appears only in a text cell), so the JupyterHub run trained on the CPU despite the V100. My `cifar10train.py` does use `cuda:0`.
 
-- Run the Task 5 Logic-LM experiments as a Nautilus **Job** with a GPU. My laptop has 8 GB of RAM, which kept me on a 3B model; a GPU pod can run 7B+ models in Ollama and the full PrOntoQA dev set.
-- Keep datasets on a PVC from the start, so no run downloads them twice.
-- Delete the `ctokazak-task2` PVC (`kubectl delete -f task2_nautilus/pvc.yaml`) once this task is graded.
+## Feedback and suggestions
 
-## Issues / feedback
+- Mention `kubelogin` in the setup steps, and that "Forbidden" means you still need to be added to the namespace.
+- Keep a shared copy of CIFAR-10 on a PVC in the namespace so each auditor doesn't download it again.
+- Add `net.to(device)` to the tutorial notebook's training cells so it uses the GPU.
 
-- The task says the namespace is joined "through Discord," but nothing tells you that the kubeconfig needs the separate `kubelogin` plugin. Without it, `kubectl` fails with an unclear error.
-- Downloading CIFAR-10 inside the pod was very slow (about 95 KB/s, 30 minutes). Keeping the dataset on the PVC fixed this for later runs. A shared copy of the dataset in the namespace would save everyone the wait.
+<div style="page-break-before: always"></div>
+
+**Screenshot: Job training log** (`kubectl logs job/ctokazak-task2-job -n aiea-auditors`), showing `Device: cuda:0`
+
+![](task2_job_screenshot.png){width=6.5in}
