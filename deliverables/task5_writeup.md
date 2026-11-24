@@ -35,11 +35,11 @@ GPT-4 matches exactly. For gpt-3.5, 45 of the 500 programs fail to execute and g
 |---|---|---|---|
 | Course KB, first prompt | 28.6% | 35.7% | 92.9% |
 | Course KB, prompt with predicate descriptions | 28.6% | **57.1%** | 100% |
-| PrOntoQA, first 10 dev problems (partial) | 30.0% | 30.0% | 80.0% |
+| PrOntoQA, first 30 dev problems | 33.3% | 20.0% | 60.0% |
 
 ## What I learned and what went wrong
 
 - With my first prompt, the model **flipped argument order** (it defined `prerequisite(Course, Prereq)` and then queried `prerequisite(cse20, cse130)`) and **invented facts** (e.g., "Jordan passed CSE 12"). The program ran, so self-refinement couldn't catch it. Adding the paper's idea of describing each predicate first (`% prerequisite(C, P, T) ::: Is P a prerequisite of C?`) and saying "never add facts the problem does not state" raised accuracy from 35.7% to 57.1%.
-- On PrOntoQA, the 3B model often breaks the 5-hop chain: it gets the first fact wrong, skips a link, or turns "not metallic" into `metallic(X, true)`. The solver then correctly answers *Unknown*. That's the paper's point: errors move from reasoning to translation, where you can inspect them.
-- **Issues:** My laptop has 8 GB of RAM, so I couldn't run a 7B model alongside everything else, and the PrOntoQA run was cut short when the laptop went to sleep. The partial results are saved, and `evaluate.py` resumes where it stopped.
+- On PrOntoQA, Logic-LM did **worse** than direct prompting (20% vs 33%; both are below the 50% you'd get by guessing). Only 60% of programs ran, and 17 of 30 answers were *Unknown*. The 3B model often breaks the 5-hop chain: it gets the first fact wrong, skips a link, or turns "not metallic" into `metallic(X, true)`. The solver then correctly answers *Unknown*. That's the paper's main limitation: errors move from reasoning to translation. They're easier to inspect, but a small model makes too many of them. The paper's 83% needed GPT-4 as the translator.
+- **Issues:** My laptop has 8 GB of RAM, so I couldn't run a 7B model alongside everything else, and the PrOntoQA run was interrupted twice (the laptop went to sleep), so I made `evaluate.py` save each answer and resume where it stopped. I limited the run to 30 problems because each one takes 15–110 s on my laptop.
 - **Still to do:** join a team and add it to the Notion projects database as a subproject.

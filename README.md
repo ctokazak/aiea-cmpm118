@@ -31,7 +31,7 @@ cd task4_kb && ../.venv/bin/python queries.py
 cd task5_logic_lm
 ../.venv/bin/python course_kb_problems.py            # builds data/course_kb.json from the Task 4 KB
 ../.venv/bin/python evaluate.py course_kb            # Logic-LM vs direct prompting
-../.venv/bin/python evaluate.py prontoqa --limit 50
+../.venv/bin/python evaluate.py prontoqa --limit 30
 
 # Task 6
 cd task6_other_logics && ../.venv/bin/python test_datalog.py && ../.venv/bin/python datalog.py examples/graph.dl

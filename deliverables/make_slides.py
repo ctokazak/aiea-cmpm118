@@ -228,7 +228,7 @@ def task5():
            "% predicates\n% prerequisite(C, P, T) ::: Is P a prerequisite of C?\n"
            "prerequisite(C, P, true) :- requires(C, P, true).\n?- prerequisite(cse130, cse20, true).", 14)
     d._text(s, 0.7, 5.5, 12, 1.3, [
-        "Test sets: 14 questions generated from my Task 4 course KB (gold answers from Prolog), and the first 50 PrOntoQA dev problems.",
+        "Test sets: 14 questions generated from my Task 4 course KB (gold answers from Prolog), and the first 30 PrOntoQA dev problems.",
     ], 16, MUTED)
 
     rows = [["Test set", "Model", "Direct", "Logic-LM", "Programs ran"],
@@ -238,16 +238,16 @@ def task5():
         rows.append(["Course KB (14)", "qwen2.5:7b", pct(kb7["direct_accuracy"]), pct(kb7["logic_lm_accuracy"]),
                      pct(kb7["executable_rate_with_refinement"])])
     if pq:
-        rows.append([f"PrOntoQA (first {pq['n']}, partial)", "qwen2.5:3b", pct(pq["direct_accuracy"]), pct(pq["logic_lm_accuracy"]),
+        rows.append([f"PrOntoQA (first {pq['n']})", "qwen2.5:3b", pct(pq["direct_accuracy"]), pct(pq["logic_lm_accuracy"]),
                      pct(pq["executable_rate_with_refinement"])])
     s = d._frame("What I found", "My reproduction")
     d.table(s, 0.7, 1.75, 11.9, rows, col_w=[2.8, 2.3, 2.1, 2.4, 2.3], size=17, highlight_col=3)
     d._text(s, 0.7, 2.0 + 0.45 * len(rows), 12, 3.2, [
-        "Same pattern as the paper: the solver helps most when the model's own reasoning is weak.",
+        "On my course KB, the solver doubled accuracy. On PrOntoQA, it lowered it: a 3B model can't translate 5-hop problems reliably.",
         "My first prompt scored 35.7% on the course KB: the model flipped argument order and invented facts. "
         "Adding the paper's predicate descriptions (“Shy($x, bool) ::: Is x shy?”) raised it to 57.1%.",
-        "On PrOntoQA the 3B model often breaks the 5-hop chain (wrong first fact, missing links), so the solver says Unknown. "
-        "These are translation errors, exactly the paper's main limitation.",
+        "On PrOntoQA the 3B model often breaks the 5-hop chain (wrong first fact, missing links), so the solver says Unknown (17 of 30). "
+        "These are translation errors, exactly the paper's main limitation. It needs a stronger model (the paper used GPT-4).",
     ], 17, INK)
     return d
 

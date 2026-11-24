@@ -8,3 +8,30 @@
 [8/30] gold=False logic_lm=Unknown direct=Unknown solved (14s)
 [9/30] gold=True  logic_lm=False   direct=True    solved (20s)
 [10/30] gold=False logic_lm=True    direct=Unknown solved (201s)
+[14/30] gold=False logic_lm=False   direct=False   solved (10s)
+[15/30] gold=True  logic_lm=Unknown direct=True    solved (13s)
+[16/30] gold=False logic_lm=Unknown direct=Unknown backup (direct LLM) (37s)
+[17/30] gold=False logic_lm=True    direct=True    backup (direct LLM) (49s)
+[18/30] gold=False logic_lm=Unknown direct=Unknown backup (direct LLM) (39s)
+[19/30] gold=False logic_lm=True    direct=True    backup (direct LLM) (90s)
+[20/30] gold=False logic_lm=False   direct=False   solved after 1 refinement(s) (25s)
+[21/30] gold=True  logic_lm=False   direct=Unknown solved (15s)
+[22/30] gold=False logic_lm=Unknown direct=Unknown backup (direct LLM) (47s)
+[23/30] gold=True  logic_lm=Unknown direct=Unknown backup (direct LLM) (61s)
+[24/30] gold=True  logic_lm=Unknown direct=Unknown backup (direct LLM) (119s)
+[25/30] gold=True  logic_lm=Unknown direct=True    solved (18s)
+[26/30] gold=True  logic_lm=Unknown direct=Unknown backup (direct LLM) (111s)
+[27/30] gold=True  logic_lm=True    direct=True    backup (direct LLM) (31s)
+[28/30] gold=False logic_lm=Unknown direct=Unknown solved (19s)
+[29/30] gold=False logic_lm=True    direct=Unknown solved (13s)
+[30/30] gold=True  logic_lm=Unknown direct=True    solved (16s)
+{
+  "dataset": "prontoqa",
+  "model": "qwen2.5:3b",
+  "n": 30,
+  "logic_lm_accuracy": 0.2,
+  "direct_accuracy": 0.3333333333333333,
+  "executable_rate_no_refinement": 0.5333333333333333,
+  "executable_rate_with_refinement": 0.6,
+  "executable_accuracy": 0.2777777777777778
+}
