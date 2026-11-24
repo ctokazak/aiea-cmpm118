@@ -1,0 +1,30 @@
+Downloading https://cave.cs.toronto.edu/kriz/cifar-10-python.tar.gz to ./data/cifar-10-python.tar.gz
+
+Extracting ./data/cifar-10-python.tar.gz to ./data
+Files already downloaded and verified
+Device: cuda:0
+[1,  2000] loss: 2.199
+[1,  4000] loss: 1.866
+[1,  6000] loss: 1.676
+[1,  8000] loss: 1.567
+[1, 10000] loss: 1.507
+[1, 12000] loss: 1.473
+[2,  2000] loss: 1.398
+[2,  4000] loss: 1.384
+[2,  6000] loss: 1.372
+[2,  8000] loss: 1.323
+[2, 10000] loss: 1.331
+[2, 12000] loss: 1.301
+Finished Training
+Accuracy of the network on the 10000 test images: 55 %
+Accuracy for class: plane is 51.6 %
+Accuracy for class: car   is 64.3 %
+Accuracy for class: bird  is 40.7 %
+Accuracy for class: cat   is 25.0 %
+Accuracy for class: deer  is 42.1 %
+Accuracy for class: dog   is 48.7 %
+Accuracy for class: frog  is 71.8 %
+Accuracy for class: horse is 70.6 %
+Accuracy for class: ship  is 78.5 %
+Accuracy for class: truck is 62.9 %
+Total time: 2006.10 seconds
