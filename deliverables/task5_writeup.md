@@ -1,9 +1,5 @@
 **Repository:** <https://github.com/ctokazak/aiea-cmpm118> (folder `task5_logic_lm/`) · **Slides:** `deliverables/task5_logic_lm_slides.pdf` (9 slides) · **Paper:** Pan et al., *Logic-LM*, Findings of EMNLP 2023 (arXiv:2305.12295)
 
-## The paper in brief
-
-Logic-LM has an LLM **translate** a reasoning problem into a symbolic program (a problem formulator). A deterministic **solver** then does the reasoning: Pyke for PrOntoQA and ProofWriter, Prover9 for FOLIO, python-constraint for LogicalDeduction, and Z3 for AR-LSAT. A **result interpreter** maps the solver's output to an answer, and a **self-refiner** sends solver error messages back to the LLM to fix programs that don't run. With GPT-4 it scores 79.66 on ProofWriter (vs. 68.11 for chain-of-thought) and 87.63 on LogicalDeduction (vs. 75.25). Averaged over all models and datasets, it gains 39.2% over standard prompting and 18.4% over chain-of-thought. The main limitation is translation: the program is only as correct as the LLM's formalization.
-
 ## Getting the authors' code running
 
 I cloned `teacherpeterpan/Logic-LLM` and ran its solver stage (`models/logic_inference.py`) on the PrOntoQA logic programs the authors released, then ran their `evaluation.py`. No API key was needed, because the LLM translations are already in the repo. One fix was needed: the Pyke solver imports Python's `imp` module, which was removed in Python 3.12, so I ran it in a Python 3.11 environment.

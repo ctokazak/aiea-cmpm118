@@ -1,9 +1,5 @@
 **Repository:** <https://github.com/ctokazak/aiea-cmpm118> (folder `task2_nautilus/`)
 
-## What Nautilus is
-
-Nautilus, run by the National Research Platform (NRP), is a shared Kubernetes cluster of GPU machines spread across many universities. You don't log in to a specific machine. Instead you describe what you want in a YAML file (a container image, CPUs, memory, GPUs, storage) and Kubernetes schedules it on whatever node has room. Our lab's resources live in the `aiea-auditors` **namespace**.
-
 ## Getting access
 
 1. Logged in at nrp.ai with my UCSC account through CILogon.
@@ -26,10 +22,6 @@ All three YAML files are in `task2_nautilus/`:
 **Job:** applied `job.yaml` on the same PVC (after the deployment's pod was gone, since a PVC can be single-attach) and read the output with `kubectl logs job/ctokazak-task2-job`. Then I deleted the job. The log shows `Device: cuda:0`, so the training ran on the GPU. The job finished in 4m23s (219.6 s for the script), reusing the dataset already on the PVC. The loss fell from 2.225 to 1.267, and test accuracy was **52%**. It differs slightly from the deployment run because the weights start from a different random initialization and the data is shuffled differently. Log: `task2_nautilus/logs/job_train.log`.
 
 ![Job log from `kubectl logs`, showing `Device: cuda:0`](task2_job_screenshot.png){width=5.5in}
-
-## Deployment vs. Job
-
-A **deployment** keeps a pod running (and restarts it), which is good for interactive work but wastes a GPU if forgotten. A **job** runs a command to completion and then releases its resources, which is better for training runs. That's also why `sleep infinity` is fine in a deployment but never in a job.
 
 ## Next steps
 

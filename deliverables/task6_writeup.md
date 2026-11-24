@@ -1,8 +1,8 @@
 **Repository:** <https://github.com/ctokazak/aiea-cmpm118> (folder `task6_other_logics/`) · **Tutorial:** `task6_other_logics/TUTORIAL.md` · **Slides:** `deliverables/task6_datalog_slides.pdf` (7 slides)
 
-## Why Datalog
+## Choosing a logic
 
-Of the logics listed (Datalog, LTL, deontic, probabilistic soft logic, fuzzy logic), I chose **Datalog** because it is the closest to the Prolog I used in Tasks 4 and 5. That let me compare the two directly on the same knowledge base. Datalog is Prolog without function symbols, evaluated bottom-up. Every program terminates and has exactly one meaning, which also makes it a good target for LLM translation: a wrong program can give a wrong answer, but it can never hang.
+Of the logics listed (Datalog, LTL, deontic, probabilistic soft logic, fuzzy logic), I chose **Datalog** because it is the closest to the Prolog I used in Tasks 4 and 5, so I could run both on the same knowledge base and compare them directly.
 
 ## Getting the tools running
 
