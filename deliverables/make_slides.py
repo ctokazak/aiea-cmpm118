@@ -111,7 +111,7 @@ class Deck:
             x = x0 + i * (w + gap)
             box = s.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, Inches(x), Inches(y), Inches(w), Inches(1.9))
             box.fill.solid(); box.fill.fore_color.rgb = LIGHT; box.line.color.rgb = ACCENT
-            self._text(s, x + 0.12, y + 0.12, w - 0.24, 0.5, head, 17, ACCENT, True)
+            self._text(s, x + 0.12, y + 0.12, w - 0.24, 0.5, head, 15, ACCENT, True)
             self._text(s, x + 0.12, y + 0.62, w - 0.24, 1.25, body, 13, INK)
             if i < len(steps) - 1:
                 arr = s.shapes.add_shape(MSO_SHAPE.RIGHT_ARROW, Inches(x + w + 0.05), Inches(y + 0.75),
