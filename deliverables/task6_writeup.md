@@ -1,8 +1,4 @@
----
-title: "Task 6: Researching Other Logics + LLMs — Datalog"
----
-
-**Repository:** <https://github.com/ctokazak/aiea-cmpm118> (folder `task6_other_logics/`) · **Tutorial:** `task6_other_logics/TUTORIAL.md` · **Slides:** `deliverables/task6_datalog_slides.pptx` (7 slides)
+**Repository:** <https://github.com/ctokazak/aiea-cmpm118> (folder `task6_other_logics/`) · **Tutorial:** `task6_other_logics/TUTORIAL.md` · **Slides:** `deliverables/task6_datalog_slides.pdf` (7 slides)
 
 ## Why Datalog
 

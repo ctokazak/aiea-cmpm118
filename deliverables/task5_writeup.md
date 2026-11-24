@@ -1,8 +1,4 @@
----
-title: "Task 5: Understanding Logical Reasoning — Logic-LM"
----
-
-**Repository:** <https://github.com/ctokazak/aiea-cmpm118> (folder `task5_logic_lm/`) · **Slides:** `deliverables/task5_logic_lm_slides.pptx` (9 slides) · **Paper:** Pan et al., *Logic-LM*, Findings of EMNLP 2023 (arXiv:2305.12295)
+**Repository:** <https://github.com/ctokazak/aiea-cmpm118> (folder `task5_logic_lm/`) · **Slides:** `deliverables/task5_logic_lm_slides.pdf` (9 slides) · **Paper:** Pan et al., *Logic-LM*, Findings of EMNLP 2023 (arXiv:2305.12295)
 
 ## The paper in brief
 

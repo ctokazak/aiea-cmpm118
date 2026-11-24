@@ -1,7 +1,3 @@
----
-title: "Task 2: Nautilus"
----
-
 **Repository:** <https://github.com/ctokazak/aiea-cmpm118> (folder `task2_nautilus/`)
 
 ## What Nautilus is

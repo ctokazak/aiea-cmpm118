@@ -1,7 +1,3 @@
----
-title: "Task 4: Build Your Own KB"
----
-
 **Repository:** <https://github.com/ctokazak/aiea-cmpm118> (folder `task4_kb/`)
 
 ## Getting the tools running

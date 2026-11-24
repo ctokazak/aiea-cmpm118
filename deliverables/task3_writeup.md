@@ -1,7 +1,3 @@
----
-title: "Task 3: Symbolic Logic and Reasoning Basics"
----
-
 > **TODO before submitting:** write the Reflection section below in your own words, then delete this box.
 
 **Repository:** <https://github.com/ctokazak/aiea-cmpm118> (file `task3_symbolic_basics/3_symbolic_crash_course_completed.ipynb`)
